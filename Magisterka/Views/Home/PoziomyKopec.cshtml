@@ -1,0 +1,260 @@
+﻿@{
+    ViewData["Title"] = "PoziomyKopec";
+}
+@*<h2>@ViewData["Title"]</h2>*@
+<h3>@ViewData["Message"]</h3>
+<style>
+    .style1 {
+        background-color: lightgoldenrodyellow;
+    }
+
+    .style2 {
+        background-color: lightgreen;
+    }
+</style>
+<div class="row">
+
+    @*<h2>Pierwsza kolumna</h2>
+                <div id="ob" class="col-md-3">
+                    <div>
+                        CZEMU NIE DZIAŁA?
+                        @*<h2>Pierwsza kolumna</h2>
+                            <ul>
+                                <li>I jej informacje</li>
+                                <li></li>
+                            </ul>
+        </div>
+            </div>*@
+    @*<div class="col-md-3">
+            <h2>Infomracje z kolumny ktorej nie ma</h2>
+            <ul>
+                <li><a href="">Jakiś link</a></li>
+            </ul>
+        </div>*@
+    <div class="col-md-3">
+        <div id="ob1" class="style1">
+            <h2>Moc cieplna [Q0]</h2>
+            
+            <form>
+                Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
+                <br>
+                <input type="text" class="form-control"
+                       id="KQc" name="KQc" value=""> <br><br />
+                Współczynnik efektywności pompy [COP]
+                <br>
+                <input type="text" class="form-control"
+                       id="KCOP" name="KCOP" value=""> <br><br />
+                Moc cieplna dolnego źródła [Qo]
+                <br>
+                <input type="text" class="form-control"
+                       id="KQ0" name="KQ0" value=""> <br><br />
+
+            </form>
+              
+                
+                <input id="btn1" type="submit" value="Oblicz Q0" onclick="click1()" />
+                <script>
+                    function click1() {
+                        document.getElementById("ob1").className = "style1";
+                        document.getElementById("ob1").className = "style2";
+                    }
+                </script>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div id="ob2" class="style1">
+            <h2>Współczynnik B</h2>
+            <form>
+                Głębokość osadzenia wymiennika [H]
+                <br>
+                <input type="text" data-val="true"
+                       id="KH" name="KH" value=""> <br><br />
+                Głębokość stałej temperatury gruntu [Z]
+                <br>
+                <input type="text" data-val="true"
+                       id="KZ" name="KZ" value=""> <br><br />
+
+            </form>
+            <input id="btn2" type="button" value="Oblicz B" onclick="click2()" />
+            <script>
+                function click2() {
+                    document.getElementById("ob2").className = "style1";
+                    document.getElementById("ob2").className = "style2";
+                }
+            </script>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div id="ob3" class="style1">
+            <h2>Różnica temperatur [ΔT]</h2>
+            <form>
+                Współczynnik B
+                <br>
+                <input type="text" data-val="true"
+                       id="KB" name="KB" value=""> <br><br />
+                Temperatura gruntu - stała [Tgr]
+                <br>
+                <input type="text" data-val="true"
+                       id="KTgr" name="KTgr" value=""> <br><br />
+                Temperatura płynu  [Tgm]
+                <br>
+                <input type="text" data-val="true"
+                       id="KTgm" name="KTgm" value=""> <br><br />
+                Temperatura powietrza przy gruncie [Tp]
+                <br>
+                <input type="text" data-val="true"
+                       id="KTp" name="KTp" value=""> <br><br />
+
+            </form>
+            <input id="btn3" type="button" value="Oblicz ΔT" onclick="click3()" />
+            <script>
+                function click3() {
+                    document.getElementById("ob3").className = "style1";
+                    document.getElementById("ob3").className = "style2";
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div id="ob4" class="style1">
+            <h2>Współczynnik K</h2>
+            <form>
+                Współczynnik przejmowania ciepła od strony glikolu [αg]
+                <br>
+                <input type="text" data-val="true"
+                       id="Kalfag" name="Kalfag" value=""> <br><br />
+                Współczynnik przejmowania ciepła od strony powietrza [αp]
+                <br>
+                <input type="text" data-val="true"
+                       id="Kalfap" name="Kalfap" value=""> <br><br />
+                Współczynnik przejmowania ciepła gruntu [λgr]
+                <br>
+                <input type="text" data-val="true"
+                       id="KAgr" name="KAgr" value=""> <br><br />
+                Współczynnik przejmowania ciepła rury [λr]
+                <br>
+                <input type="text" data-val="true"
+                       id="KAr" name="KAr" value=""> <br><br />
+                Średnica wewnętrzna rury [dw]                <br>
+                <input type="text" data-val="true"
+                       id="Kdw" name="Kdw" value=""> <br><br />
+                Średnica zewnetrzna rury [dz]
+                <br>
+                <input type="text" data-val="true"
+                       id="Kdz" name="Średnica zewnetrzna rury" value=""> <br><br />
+                Współczynnik K
+                <br>
+                <input type="text" data-val="true"
+                       id="KK" name="KK" value=""> <br><br />
+            </form>
+            <input id="btn4" type="button" value="Oblicz K i C" onclick="click4()" />
+            <script>
+                function click4() {
+                    document.getElementById("ob4").className = "style1";
+                    document.getElementById("ob4").className = "style2";
+                }
+            </script>
+
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <div id="ob5" class="style1">
+            <h2>Jednostkowy strumień ciepła [qL]</h2>
+            <form>
+                Współczynnik przewodzenia gruntu [λgr]
+                <br>
+                <input type="text" data-val="true"
+                       id="Aagr" name="Aagr" value=""> <br><br />
+                Liczba rur:
+                <br>
+                <select id="Rury">
+                    <option value="1">1</option>
+                    <option value="1.5">2</option>
+                    <option value="1.8">3</option>
+                    <option value="2.1">4</option>
+                </select>
+                <br><br />
+                Jednostkowy strumień ciepła [qL]                
+                <br>
+                <input type="text" data-val="true"
+                       id="Kdz" name="Kdz" value=""> <br><br />
+            </form>
+                <input id="btn5" type="button" value="Oblicz qL" onclick="click5()" />
+                <script>
+                    function click5() {
+                        document.getElementById("ob5").className = "style1";
+                        document.getElementById("ob5").className = "style2";
+                    }
+                </script>
+
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div id="ob6" class="style1">
+            <h2>Łączna długość wymiennika ciepła [Lp]</h2>
+            <form>
+                Rozstawienie rur [ep]
+                <br>
+                <input type="text" data-val="true"
+                       id="Kep" name="Kep" value=""> <br><br />
+                Jednostkowa wydajność cieplna  [qh]                <br>
+                <input type="text" data-val="true"
+                       id="Kqh" name="Kqh" value=""> <br><br />
+                Średnica zewnetrzna rury [dz]
+                <br>
+                <input type="text" data-val="true"
+                       id="Kdz" name="Kdz" value=""> <br><br />
+            </form>
+            <br>
+            <input id="btn6" type="button" value="Oblicz Lp" onclick="click6()" />
+            <script>
+                function click6() {
+                    document.getElementById("ob6").className = "style1";
+                    document.getElementById("ob6").className = "style2";
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<br >
+
+
+@*nie wiem czy tego w masterpagea nie dac*@
+<hr />
+<div class="row">
+    
+        
+        <input id="btn11" type="button" value="Zapisz" onclick="save()" />
+        <script>
+            function save() {
+
+            } 
+        </script>
+    
+    
+        <input id="btn7" type="button" value="Czyść" onclick="clr()" />
+        <script>
+            function clr() {
+                document.getElementById("ob1").className = "style1";
+                document.getElementById("ob2").className = "style1";
+                document.getElementById("ob3").className = "style1";
+                document.getElementById("ob4").className = "style1";
+                document.getElementById("ob5").className = "style1";
+                document.getElementById("ob6").className = "style1";
+            }
+        </script>
+   
+    
+        <input id="btn10" type="button" value="Wypełnij" onclick="full()" />
+        <script>
+            function full() {
+
+            }
+        </script>
+   
+</div>
