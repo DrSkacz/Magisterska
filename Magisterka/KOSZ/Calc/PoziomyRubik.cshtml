@@ -1,0 +1,153 @@
+﻿@model Magisterka.Models.Obl
+@{
+    ViewData["Title"] = "PoziomyRubik";
+}
+@using (Html.BeginForm("/PoziomyRubik", "Calc", FormMethod.Post))
+{
+//TO JEST POWIELONY WIDOK ? :O
+//Głupie toto to
+
+
+    <h3>@ViewData["Message"]</h3>
+    <div>
+        <style>
+            .style1 {
+                background-color: lightgoldenrodyellow;
+            }
+
+            .style2 {
+                background-color: lightgreen;
+            }
+        </style>
+
+        <div class="row">
+
+
+            <div class="col-md-3">
+                <div id="ob8" class="style1">
+                    <h2>Moc cieplna [Q0]</h2>
+                    <br>
+                    Moc grzewcza pompy ciepła w kW [Qg]
+                    <input type="text" class="form-control" id="RQg" name="RQg" value="@Model.RQg" />
+                    <br><br />
+                    Znamionowy współczynnik wydajnosci [φ]
+                    <br>
+                    <input type="Text" class="form-control" id="RFi" name="RFi" value="@Model.RFi" />
+                    <br><br />
+                    <button id="btn8" type="submit" value="btn8" onclick="click8()" name="Oblicz">Oblicz</button>
+                    <script>
+                    function click8() {
+                        document.getElementById("ob8").className = "style1";
+                        document.getElementById("ob8").className = "style2";
+                    }
+                    </script>
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-3">
+
+                <div id="ob9" class="style1">
+                    <h2>Długość rur[L]</h2>
+
+                    Moc cieplna pobierana z gruntu [Q0]
+                    <br>
+                    <input type="Text" class="form-control" id="RQ0" name="RQ0" value="@Model.RQ0" />
+                    <br><br />
+                    Głębokośc ułożenia rury:
+                    <br>
+                    <select id="Dig">
+                        <option value="-3.5">0</option>
+                        <option value="-2.2">0,25</option>
+                        <option value="-1.1">0,5</option>
+                        <option value="0">0,75</option>
+                        <option value="1">1</option>
+                        <option value="2">1,25</option>
+                        <option value="3">1,5</option>
+                        <option value="3.9">1,75</option>
+                        <option value="4.9">2</option>
+                        <option value="5.5">2,25</option>
+                        <option value="6.5">2,5</option>
+                        <option value="7">2,75</option>
+                        <option value="9.5">3</option>
+                    </select>
+                    <br><br />
+
+                    Temperatura gruntu na glebokosci x [t∞]
+                    <br>
+                    <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
+                    <br><br />
+                    Temperatura nośnika ciepła odpływająca z wymiennika gruntowego [t]
+                    <br>
+                    <input type="Text" class="form-control" id="Rt" name="Rt" value="@Model.Rt" />
+                    <br><br />
+                    Rodzaj gruntu:
+                    <br>
+                    <select id="Gleba">
+                        <option value="2.33">Grunt gliniasty</option>
+                        <option value="1.16">Grunt piaszczysty</option>
+                        <option value="1.33">Piasek o wilgoci 20%</option>
+                        <option value="1.88">Piasek nasycony wodą</option>
+                        <option value="1.76">Piasek morski o wilgoci 20%</option>
+                        <option value="1.33">Piasek morski nasycony</option>
+                        <option value="2.1">Grunt wilgony</option>
+                        <option value="1.4">Grunt średniowilgotny</option>
+                    </select>
+                    <br><br />
+
+                    Łączna długość wymiennika ciepła [L]
+                    <br>
+                    <input type="Text" class="form-control" id="RL" name="RL" value="@Model.RL" />
+                    <br><br />
+
+                    <button id="btn9" type="submit" value="btn9" onclick="click8()" name="Oblicz">Oblicz L</button>
+                    <script>
+                    function click9() {
+                        document.getElementById("ob9").className = "style1";
+                        document.getElementById("ob9").className = "style2";
+                    }
+                    </script>
+
+                </div>
+            </div>
+           
+        </div>
+
+
+
+
+
+
+        <hr />
+        <div class="row">
+
+
+            <input id="btn12" type="button" value="Zapisz" onclick="save2()" />
+            <script>
+            function save2() {
+
+            }
+            </script>
+
+
+            <input id="btn13" type="button" value="Czyść" onclick="clr2()" />
+            <script>
+            function clr2() {
+                document.getElementById("ob8").className = "style1";
+                document.getElementById("ob9").className = "style1";
+            }
+            </script>
+
+
+            <input id="btn14" type="button" value="Wypełnij" onclick="full2()" />
+            <script>
+            function full2() {
+
+            }
+            </script>
+
+        </div>
+    </div>
+}

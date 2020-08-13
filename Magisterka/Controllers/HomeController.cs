@@ -14,34 +14,161 @@ namespace Magisterka.Controllers
         {
             return View();
         }
+        /*
+
+
+       ABOUT   
+
+
+       */
 
         public IActionResult About()
         {
             ViewData["Message"] = "Informacje o autorze programu.";
-
+           
             return View();
         }
+        /*
 
+
+       STRONA KOPCIA    
+
+
+       */
         public IActionResult PoziomyKopec()
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
-
-            return View();
+            return View(new pKO());
         }
 
+        [HttpPost]
+
+        public ActionResult PoziomyKopec(pKO c, string Oblicz)
+
+        {
+            if (Oblicz == "btn1")
+            {
+                //Q0 = Qg * ((Fi - 1) / Fi);
+            }
+            else if (Oblicz == "btn2")
+            {
+                //B = H / Z;
+            }
+            else if (Oblicz == "btn3")
+            {
+                //x = X4 - X3 + B * (X2 - X4);
+            }
+            else if (Oblicz == "btn4")
+            {
+                // C = ((2 * X3) / (X1 * X5)) + ((X3 / X4) * Math.Log(X6 / X5)) + Math.Log(((2 * X3) / X6) * ((1 / X2) + (Z / X3)));
+                // K = (1 / PI) * Math.Exp(C + (Math.Pow(PI, 2) / 4) * Math.Exp(-2 * C)) * Math.Sin(PI * B);
+            }
+            else if (Oblicz == "btn5")
+            {
+                // qL = X1 * x * ((2 * PI) / (Math.Log(K + Math.Sqrt(Math.Pow(K, 2) - 1))));
+                // ql1 = itm.Value * qL;
+            }
+            else if (Oblicz == "btn6")
+            {
+                /*
+                qH = qL / EP;
+                A0 = Q0 / qH;
+                Lp = A0 / EP; 
+                */
+            }
+
+            return View(c);
+        }
+        /*
+
+
+       STRONA RUBIKA   
+
+
+       */
         public IActionResult PoziomyRubik()
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Rubika";
+            return View(new Obl());
+            /* Trzeba to przemyśleć
+             var model = new Listy();
+            model.Lista1 = "0";
+            return View(model);
 
-            return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult PoziomyRubik(Listy model)
+        {
+            if (ModelState.IsValid)
+            {
+                var msg = model.Lista1 + " selected";
+                return RedirectToAction("IndexSuccess", new { message = msg });
+            }
 
+            // If we got this far, something failed; redisplay form.
+            return View(model);
+            */
+        }
+        [HttpPost]
+
+        public ActionResult PoziomyRubik(Obl c, string Oblicz)
+
+        {
+            if (Oblicz == "btn8")
+            {
+                c.RQ0 = c.RQg * ((c.RFi - 1) / c.RFi);
+                c.RQ0 = Math.Round(c.RQ0, 4);
+            }
+            else if (Oblicz == "btn9")
+            {
+                //c.RL = (c.RQ0 * Math.Log(4 / c.RDz) / (2 * Math.PI * 1 * (c.Rtinf - c.Rt)));
+                c.RL = c.selector2;
+                /*L = (Q0 * Math.Log((4 * x) / Dz) / (2 * PI * itm.Value * (tinf - t)));
+                 X- to value z 1 selecta a itmvalue z 2*/
+            }
+          
+
+            return View(c);
+        }
+        /*
+         
+             
+        STRONA PIONOWEGO     
+             
+             
+        */
         public IActionResult Pionowy()
         {
             ViewData["Message"] = "Obliczenia długosci pionowego wymiennika ciepła";
-
-            return View();
+            return View(new pP());
         }
+        [HttpPost]
+
+        public ActionResult Pionowy(pP c, string Oblicz)
+
+        {
+            if (Oblicz == "")
+            {
+               //NIE WIEM JESZCZE
+            }
+            else if (Oblicz == "")
+            {
+                //NIE WIEM JESZCZE
+            }
+
+
+            return View(c);
+        }
+
+        /*
+
+
+       WYŚWIETLANIE BAZY DANYCH TU BEDZIE
+       COS O GRID NIE WIEM JESZCZE CZY BAZY NIE ROZBIC NA 3
+
+
+       */
 
         public IActionResult Baza()
         {
