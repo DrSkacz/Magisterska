@@ -53,8 +53,7 @@ namespace Magisterka.Models
 
         public double KLp { get; set; }
 
-        public string Selector3 { get; set; }
-
+        public double Selector3 { get; set; }
 
         public List<SelectListItem> Rury { get; } = new List<SelectListItem>
         {

@@ -29,7 +29,7 @@
                         <input type="text" class="form-control" id="KCOP" name="KCOP" value="@Model.KCOP" /> <br />
                         Moc cieplna dolnego źródła [Qo]
                         <br>
-                        <input type="text" class="form-control" id="KQ0" name="KQ0" value="@Model.KQ0" /> <br />
+                        <input type="text" class="form-control" id="KQ0" name="KQ0" value="@Model.KCOP" /> <br />
 
                     </form>
 
@@ -61,7 +61,7 @@
                     </form>
                     @* A GDYBY TAK ZAMIAST SUBMITA DAC BUTTON?
                         NIE Bo usuwa dane przy kazdym innym kliknieciu*@
-                    <button id="btn2" type="submit" value="btn2" onclick="click2()" name="Oblicz">Oblicz B</button>
+                    <button id="btn2" type="submit" value="btn2" onclick="click2()" name="Oblicz">Oblicz Q0</button>
                     <script>
                         function click2()
                         {
@@ -146,14 +146,19 @@
                     <form>
                         Współczynnik przewodzenia gruntu [λgr]
                         <br>
-                        <input type="text" class="form-control" id="AAgr" name="AAgr" value="@Model.KAAgr" /> <br />
+                        <input type="text" class="form-control" id="AAgr" name="AAgr" value="@Model.KAAgr"/> <br />
                         Liczba rur:
                         <br>
-                        <select asp-for="Selector3" asp-items="Model.Rury"></select>
+                        <select id="Rury" value="@Model.Selector3">
+                            <option value="1">1</option>
+                            <option value="1,5">2</option>
+                            <option value="1,8">3</option>
+                            <option value="2,1">4</option>
+                        </select>
                         <br><br />
                         Jednostkowy strumień ciepła [qL]
                         <br>
-                        <input type="text" class="form-control" id="KqL" name="KqL" value="@Model.KqL" /> <br />
+                        <input type="text" class="form-control" id="KqL" name="KqL" value="@Model.KqL"/> <br />
                     </form>
                     <button id="btn5" type="submit" value="btn5" onclick="click5()" name="Oblicz">Oblicz qL</button>
                     <script>

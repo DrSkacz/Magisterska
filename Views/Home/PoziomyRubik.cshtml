@@ -59,11 +59,8 @@
                     <br><br />
                     Głębokośc ułożenia rury:
                     <br>
-                    @*
-           @Html.DropDownList("Rodzaj gruntu:", Model.Glebokosc)
-        <select asp-for="Lista1" asp-items="Model.Listy"></select>
-                    *@
-                    <select asp-for="Selector1" asp-items="Model.Glebokosc"></select>
+                    @Html.DropDownList("Rodzaj gruntu:", Model.GlebaR);
+                   
 
                     <br><br />
 
@@ -77,8 +74,7 @@
                     <br><br />
                     Rodzaj gruntu:
                     <br>
-                   @* @Html.DropDownList("Rodzaj gruntu:", Model.Gleba)*@
-                    <select asp-for="Selector2" asp-items="Model.Gleba"></select>
+                    @Html.DropDownList("Rodzaj gruntu:", Model.Gleba)
                     <br><br />
 
                     Łączna długość wymiennika ciepła [L]

@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Web;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Magisterka.Models;
 
 namespace Magisterka.Controllers
@@ -30,6 +28,13 @@ namespace Magisterka.Controllers
            
             return View();
         }
+
+        public IActionResult TEST()
+        {
+            ViewData["Message"] = "TEST";
+
+            return View();
+        }
         /*
 
 
@@ -40,8 +45,6 @@ namespace Magisterka.Controllers
         public IActionResult PoziomyKopec()
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
-            var model = new PKO();
-            model.Selector3 = "?";
             return View(new PKO());
         }
 
@@ -52,14 +55,11 @@ namespace Magisterka.Controllers
         {
             if (Oblicz == "btn1")
             {
-                c.KQ0 = c.KQc * ((c.KCOP - 1) / c.KCOP);
-                c.KQ0 = Math.Round(c.KQ0, 4);
                 //Q0 = Qg * ((Fi - 1) / Fi);
             }
             else if (Oblicz == "btn2")
             {
-                c.KB = c.KH / c.KZ;
-                c.KQ0 = Math.Round(c.KQ0, 4);
+                //B = H / Z;
             }
             else if (Oblicz == "btn3")
             {
@@ -96,12 +96,29 @@ namespace Magisterka.Controllers
         public IActionResult PoziomyRubik()
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Rubika";
-            var model = new Obl();
-            model.Selector1 = "?";
-            model.Selector2 = "?";
             return View(new Obl());
-         
+
+            /* Trzeba to przemyśleć
+             var model = new Listy();
+            model.Lista1 = "0";
+            return View(model);
+
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult PoziomyRubik(Listy model)
+        {
+            if (ModelState.IsValid)
+            {
+                var msg = model.Lista1 + " selected";
+                return RedirectToAction("IndexSuccess", new { message = msg });
+            }
+
+            // If we got this far, something failed; redisplay form.
+            return View(model);
+            */
+        }
+
         [HttpPost]
 
         public ActionResult PoziomyRubik(Obl c, string Oblicz)
@@ -114,12 +131,14 @@ namespace Magisterka.Controllers
             }
             else if (Oblicz == "btn9")
             {
-                Convert.ToDouble(c.Selector1);
-                double x,y;
-                x = Convert.ToDouble(c.Selector1);
-                y = Convert.ToDouble(c.Selector2);
-                c.RL = ((c.RQ0 * Math.Log(4*x)/c.RDz)/(2*Math.PI*y*(c.Rtinf - c.Rt)));
-                c.RL = Math.Round(c.RL, 2);
+                //https://www.c-sharpcorner.com/article/different-ways-bind-the-value-to-razor-dropdownlist-in-aspnet-mvc5/?fbclid=IwAR3PYSguG67mOEloWBB45wbQciE9ruRYUXFdOHrho4gd5dtwc5v8OAkpADs
+                c.RL = c.Selector1;
+                /*L = (Q0 * Math.Log((4 * x) / Dz) / (2 * PI * itm.Value * (tinf - t)));
+                 X- to value z 1 selecta a itmvalue z 2*/
+
+
+               // c.Glebokosc=Request.Form["GlebokoscUlozeniaRury"];
+                c.Gleba = Request.Form["Grunt gliniasty"];
             }
           
 
@@ -135,30 +154,22 @@ namespace Magisterka.Controllers
         public IActionResult Pionowy()
         {
             ViewData["Message"] = "Obliczenia długosci pionowego wymiennika ciepła";
-            var model = new PP();
-            model.PVALUE = "?";
-            return View(model);
-
+            return View(new PP());
         }
-
         [HttpPost]
-        public ActionResult Pionowy(PP c, string Oblicz)
-            
-            {
-                if (Oblicz == "btn4")
-                {
-                // c.PVALUE to warotsc dropdownu xD ;
 
-                Convert.ToDouble(c.PVALUE);
-                double x;
-                x = Convert.ToDouble(c.PVALUE);
-                c.PVALUE2 = x;
+        public ActionResult Pionowy(PP c, string Oblicz)
+
+        {
+            if (Oblicz == "")
+            {
+               //NIE WIEM JESZCZE
             }
-                else if (Oblicz == "")
-                {
-                    //NIE WIEM JESZCZE
-                }
-            
+            else if (Oblicz == "")
+            {
+                //NIE WIEM JESZCZE
+            }
+
 
             return View(c);
         }

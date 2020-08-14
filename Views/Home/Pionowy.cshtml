@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Pionowy";
 }
-<h3>@ViewData["Message"]</h3>
+
 @using (Html.BeginForm("Pionowy", "Home", FormMethod.Post))
 {
-
+    <h3>@ViewData["Message"]</h3>
 
     <p>Obliczenia dla pionowego wymiennika ciepła.</p>
     <style>
@@ -22,19 +22,21 @@
             <div id="ob4" class="style1">
                 <h2>Czwarta kolumna</h2>
                 <form>
-                    @* @Html.DropDownList("VALUE:", Model.LISTA); *@
-
-                    DropDown Lista
-                    <br>
-                    <select asp-for="PVALUE" asp-items="Model.LISTA"></select>
-
-                    Testowa kontrolka wynikowa
+                    Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
                     <br>
                     <input type="text" data-val="true"
-                           id="P1" name="P1" value="@Model.PVALUE2"> <br><br />
+                           id="KQc" name="KQc" value=""> <br><br />
+                    Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
+                    <br>
+                    <input type="text" data-val="true"
+                           id="KQc" name="KQc" value=""> <br><br />
+                    Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
+                    <br>
+                    <input type="text" data-val="true"
+                           id="KQc" name="KQc" value=""> <br><br />
 
                 </form>
-                <button id="btn4" type="submit" value="btn4" onclick="click4()" name="Oblicz">Oblicz</button>
+                <input id="btn4" type="button" value="Oblicz" onclick="click4()" />
                 <script>
                     function click4() {
                         document.getElementById("ob4").className = "style1";
@@ -47,9 +49,6 @@
         </div>
     </div>
     <hr />
-
-
-
     <div class="row">
 
 
