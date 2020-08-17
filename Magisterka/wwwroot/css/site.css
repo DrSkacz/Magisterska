@@ -28,10 +28,39 @@ body {
     margin: 15px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    background-color: #fff;
 }
+
+    table th {
+        background-color: #B8DBFD;
+        color: #333;
+        font-weight: bold;
+    }
+
+    table th, table td {
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+
+    table, table table td {
+        border: 0 solid #ccc;
+    }
+
+.style1 {
+    background-color: lightgoldenrodyellow;
+}
+
+.style2 {
+    background-color: lightgreen;
+}
+
+    /* Hide/rearrange for smaller screens */
+    @media screen and (max-width: 767px) {
+        /* Hide captions */
+        .carousel-caption {
+            display: none;
+        }
+    }

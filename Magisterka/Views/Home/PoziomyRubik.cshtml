@@ -4,6 +4,9 @@
 @{
     ViewData["Title"] = "PoziomyRubik";
 }
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 @using (Html.BeginForm("PoziomyRubik", "Home", FormMethod.Post))
 {
     //ON JUZ JEST NIE AKTUALNY xD
@@ -11,15 +14,6 @@
 
     <h3>@ViewData["Message"]</h3>
     <div>
-        <style>
-            .style1 {
-                background-color: lightgoldenrodyellow;
-            }
-
-            .style2 {
-                background-color: lightgreen;
-            }
-        </style>
 
         <div class="row">
 
@@ -66,7 +60,10 @@
                     <select asp-for="Selector1" asp-items="Model.Glebokosc"></select>
 
                     <br><br />
-
+                    Średnica zewnętrzna rury [DZ]
+                    <br>
+                    <input type="Text" class="form-control" id="RDz" name="RDz" value="@Model.RDz" />
+                    <br><br />
                     Temperatura gruntu na glebokosci x [t∞]
                     <br>
                     <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
@@ -77,7 +74,7 @@
                     <br><br />
                     Rodzaj gruntu:
                     <br>
-                   @* @Html.DropDownList("Rodzaj gruntu:", Model.Gleba)*@
+                    @* @Html.DropDownList("Rodzaj gruntu:", Model.Gleba)*@
                     <select asp-for="Selector2" asp-items="Model.Gleba"></select>
                     <br><br />
 

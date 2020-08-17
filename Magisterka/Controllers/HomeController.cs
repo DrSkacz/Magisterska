@@ -50,38 +50,39 @@ namespace Magisterka.Controllers
         public ActionResult PoziomyKopec(PKO c, string Oblicz)
 
         {
-            if (Oblicz == "btn1")
-            {
-                c.KQ0 = c.KQc * ((c.KCOP - 1) / c.KCOP);
-                c.KQ0 = Math.Round(c.KQ0, 4);
-                //Q0 = Qg * ((Fi - 1) / Fi);
-            }
-            else if (Oblicz == "btn2")
-            {
-                c.KB = c.KH / c.KZ;
-                c.KQ0 = Math.Round(c.KQ0, 4);
-            }
-            else if (Oblicz == "btn3")
-            {
-                //x = X4 - X3 + B * (X2 - X4);
-            }
-            else if (Oblicz == "btn4")
-            {
-                // C = ((2 * X3) / (X1 * X5)) + ((X3 / X4) * Math.Log(X6 / X5)) + Math.Log(((2 * X3) / X6) * ((1 / X2) + (Z / X3)));
-                // K = (1 / PI) * Math.Exp(C + (Math.Pow(PI, 2) / 4) * Math.Exp(-2 * C)) * Math.Sin(PI * B);
-            }
-            else if (Oblicz == "btn5")
-            {
-                // qL = X1 * x * ((2 * PI) / (Math.Log(K + Math.Sqrt(Math.Pow(K, 2) - 1))));
-                // ql1 = itm.Value * qL;
-            }
-            else if (Oblicz == "btn6")
-            {
-                /*
-                qH = qL / EP;
-                A0 = Q0 / qH;
-                Lp = A0 / EP; 
-                */
+
+            switch (Oblicz)
+                {
+                case "btn1" :
+                    c.KQ0 = c.KQc * ((c.KCOP - 1) / c.KCOP);
+                    c.KQ0 = Math.Round(c.KQ0, 4);
+                    return View(c);
+                case "btn2":
+                    c.KB = c.KH / c.KZ;
+                    c.KB = Math.Round(c.KB, 4);
+                    return View(c);
+                   
+                case "btn3":
+                    c.DT = c.Ktp - c.KTgm + c.KB * (c.KTgr - c.Ktp);
+                    break;
+                case "btn4":
+                    c.KC = ((2 * c.KAgr) / (c.Kalfag * c.Kdw)) / ((c.KAgr / c.KAr) * Math.Log(c.Kdz / c.Kdw)) + Math.Log(((2 * c.KAgr) / c.Kdz) * ((1 / c.Kalfap) + (c.KZ / c.KAgr)));
+                    c.KC = Math.Round(c.KC, 8);
+                    c.KK = (1 / Math.PI) * Math.Exp(c.KC + (Math.Pow(Math.PI, 2) / 4) * Math.Exp(-2 * c.KC)) * Math.Sin(Math.PI * c.KB);
+                    c.KK = Math.Round(c.KK, 8);
+                    return View(c);
+                case "btn5":
+                    Convert.ToDouble(c.Selector3);
+                    double itemek;
+                    itemek = Convert.ToDouble(c.Selector3);
+                    c.KqL = ( c.Agr * c.DT * ((2 * Math.PI) / (Math.Log(c.KK + Math.Sqrt(Math.Pow(c.KK, 2) - 1 )))))*itemek;
+                    return View(c);
+                case "btn6":
+                    double A0;
+                    c.Kqh = c.KqL / c.Kep;
+                    A0 = c.KQ0 / c.Kqh;
+                    c.KLp = A0 / c.Kep;
+                    return View(c);
             }
 
             return View(c);

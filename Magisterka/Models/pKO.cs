@@ -25,6 +25,8 @@ namespace Magisterka.Models
 
         public double KTgr { get; set; }
 
+        public double DT { get; set; }
+
         public double KTgm { get; set; }
 
         public double Ktp { get; set; }
@@ -35,6 +37,8 @@ namespace Magisterka.Models
 
         public double KAgr { get; set; }
 
+        public double Agr { get; set; }
+
         public double KAr { get; set; }
 
         public double Kdw { get; set; }
@@ -43,7 +47,7 @@ namespace Magisterka.Models
 
         public double KK { get; set; }
 
-        public double KAAgr { get; set; }
+        public double KC { get; set; }
 
         public double KqL { get; set; }
 

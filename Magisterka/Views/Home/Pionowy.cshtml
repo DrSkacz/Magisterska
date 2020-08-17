@@ -2,21 +2,15 @@
 @{
     ViewData["Title"] = "Pionowy";
 }
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 <h3>@ViewData["Message"]</h3>
 @using (Html.BeginForm("Pionowy", "Home", FormMethod.Post))
 {
 
 
     <p>Obliczenia dla pionowego wymiennika ciepła.</p>
-    <style>
-        .style1 {
-            background-color: lightgoldenrodyellow;
-        }
-
-        .style2 {
-            background-color: lightgreen;
-        }
-    </style>
     <div class="row">
         <div class="col-md-3">
             <div id="ob4" class="style1">
@@ -35,12 +29,6 @@
 
                 </form>
                 <button id="btn4" type="submit" value="btn4" onclick="click4()" name="Oblicz">Oblicz</button>
-                <script>
-                    function click4() {
-                        document.getElementById("ob4").className = "style1";
-                        document.getElementById("ob4").className = "style2";
-                    }
-                </script>
 
             </div>
 
@@ -62,11 +50,11 @@
 
 
         <input id="btn16" type="button" value="Czyść" onclick="clr3()" />
-        <script>
-            function clr3() {
-                document.getElementById("ob4").className = "style1";
-            }
-        </script>
+        @* <script>
+                function clr3() {
+                    document.getElementById("ob4").className = "style1";
+                }
+            </script>*@
 
 
         <input id="btn17" type="button" value="Wypełnij" onclick="full3()" />

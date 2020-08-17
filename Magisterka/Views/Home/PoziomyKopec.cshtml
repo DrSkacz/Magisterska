@@ -2,241 +2,150 @@
 @{
     ViewData["Title"] = "PoziomyKopec";
 }
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+@*<h2>@ViewData["Title"]</h2>*@
+<h3>@ViewData["Message"]</h3>
 @using (Html.BeginForm("PoziomyKopec", "Home", FormMethod.Post))
 {
-    @*<h2>@ViewData["Title"]</h2>*@
-    <h3>@ViewData["Message"]</h3>
-    <style>
-        .style1 {
-            background-color: lightgoldenrodyellow;
-        }
+<form>
+    <div class="row">
+        <div class="col-md-3">
+            <div id="ob1" class="style1">
+                <h2>Moc cieplna [Q0]</h2>
 
-        .style2 {
-            background-color: lightgreen;
-        }
-    </style>
-        <div class="row">
-            <div class="col-md-3">
-                <div id="ob1" class="style1">
-                    <h2>Moc cieplna [Q0]</h2>
+                Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
+                <br>
+                <input type="text" class="form-control" id="KQc" name="KQc" value="@Model.KQc" /> <br />
+                Współczynnik efektywności pompy [COP]
+                <br>
+                <input type="text" class="form-control" id="KCOP" name="KCOP" value="@Model.KCOP" /> <br />
 
-                    <form>
-                        Zapotrzebowanie na moc cieplną pompy ciepła [Qc]
-                        <br>
-                        <input type="text" class="form-control" id="KQc" name="KQc" value="@Model.KQc" /> <br />
-                        Współczynnik efektywności pompy [COP]
-                        <br>
-                        <input type="text" class="form-control" id="KCOP" name="KCOP" value="@Model.KCOP" /> <br />
-                        Moc cieplna dolnego źródła [Qo]
-                        <br>
-                        <input type="text" class="form-control" id="KQ0" name="KQ0" value="@Model.KQ0" /> <br />
 
-                    </form>
-
-                    <button id="btn1" type="submit" value="btn1" onclick="click1()" name="Oblicz">Oblicz Q0</button>
-                    <script>
-                        function click1()
-                        {
-                            //TO DO WYJEBANIA CHYBA
-                            //POZNIEJ PRZENIESC DO CONTROLLERA METODE
-                            //WRRRRRRRRR ZROBIC IFA SPRAWDZAJACEGO DANE.
-                            document.getElementById("ob1").className = "style1";
-                            document.getElementById("ob1").className = "style2";
-                        }
-                    </script>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="ob2" class="style1">
-                    <h2>Współczynnik B</h2>
-                    <form>
-                        Głębokość osadzenia wymiennika [H]
-                        <br>
-                        <input type="text" class="form-control" id="KH" name="KH" value="@Model.KH"/> <br />
-                        Głębokość stałej temperatury gruntu [Z]
-                        <br>
-                        <input type="text" class="form-control" id="KZ" name="KZ" value="@Model.KZ"/> <br />
-
-                    </form>
-                    @* A GDYBY TAK ZAMIAST SUBMITA DAC BUTTON?
-                        NIE Bo usuwa dane przy kazdym innym kliknieciu*@
-                    <button id="btn2" type="submit" value="btn2" onclick="click2()" name="Oblicz">Oblicz B</button>
-                    <script>
-                        function click2()
-                        {
-                            document.getElementById("ob2").className = "style1";
-                            document.getElementById("ob2").className = "style2";
-                        }
-                    </script>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="ob3" class="style1">
-                    <h2>Różnica temperatur [ΔT]</h2>
-                    <form>
-                        Współczynnik B
-                        <br>
-                        <input type="text" class="form-control" id="KB" name="KB" value="@Model.KB"/> <br />
-                        Temperatura gruntu - stała [Tgr]
-                        <br>
-                        <input type="text" class="form-control" id="KTgr" name="KTgr" value="@Model.KTgr"/> <br />
-                        Temperatura płynu  [Tgm]
-                        <br>
-                        <input type="text" class="form-control" id="KTgm" name="KTgm" value="@Model.KTgm"/> <br />
-                        Temperatura powietrza przy gruncie [Tp]
-                        <br>
-                        <input type="text" class="form-control" id="Ktp" name="Ktp" value="@Model.Ktp"/> <br />
-
-                    </form>
-                    <button id="btn3" type="submit" value="btn3" onclick="click3()" name="Oblicz">Oblicz ΔT</button>
-                    <script>
-                        function click3()
-                        {
-                            document.getElementById("ob3").className = "style1";
-                            document.getElementById("ob3").className = "style2";
-                        }
-                    </script>
-                </div>
+                <button id="btn1" type="submit" value="btn1" name="Oblicz">Oblicz Q0</button>
+                <input id="KQ0" name="KQ0" value="@Model.KQ0" /> <br />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div id="ob4" class="style1">
-                    <h2>Współczynnik K</h2>
-                    <form>
-                        Współczynnik przejmowania ciepła od strony glikolu [αg]
-                        <br>
-                        <input type="text" class="form-control" id="Kalfag" name="Kalfag" value="@Model.Kalfag"/><br />
-                        Współczynnik przejmowania ciepła od strony powietrza [αp]
-                        <br>
-                        <input type="text" class="form-control" id="Kalfap" name="Kalfap" value="@Model.Kalfap"/> <br />
-                        Współczynnik przejmowania ciepła gruntu [λgr]
-                        <br>
-                        <input type="text" class="form-control" id="KAgr" name="KAgr" value="@Model.KAgr"/><br />
-                        Współczynnik przejmowania ciepła rury [λr]
-                        <br>
-                        <input type="text" class="form-control" id="KAr" name="KAr" value="@Model.KAr"/><br />
-                        Średnica wewnętrzna rury [dw]                
-                        <br>
-                        <input type="text" class="form-control" id="Kdw" name="Kdw" value="@Model.Kdw"/> <br />
-                        Średnica zewnetrzna rury [dz]
-                        <br>
-                        <input type="text" class="form-control" id="Kdz" name="Kdz" value="@Model.Kdz"/><br />
-                        Współczynnik K
-                        <br>
-                        <input type="text" class="form-control" id="KK" name="KK" value="@Model.KK"/> <br />
-                    </form>
-                    <button id="btn4" type="submit" value="btn4" onclick="click4()" name="Oblicz">Oblicz K i C</button>
-                    <script>
-                        function click4()
-                        {
-                            document.getElementById("ob4").className = "style1";
-                            document.getElementById("ob4").className = "style2";
-                        }
-                    </script>
+        <div class="col-md-3">
+            <div id="ob2" class="style1">
+                <h2>Współczynnik B</h2>
 
-                </div>
+                Głębokość osadzenia wymiennika [H]
+                <br>
+                <input type="text" class="form-control" id="KH" name="KH" value="@Model.KH" /> <br />
+                Głębokość stałej temperatury gruntu [Z]
+                <br>
+                <input type="text" class="form-control" id="KZ" name="KZ" value="@Model.KZ" /> <br />
 
-            </div>
-            <div class="col-md-3">
-                <div id="ob5" class="style1">
-                    <h2>Jednostkowy strumień ciepła [qL]</h2>
-                    <form>
-                        Współczynnik przewodzenia gruntu [λgr]
-                        <br>
-                        <input type="text" class="form-control" id="AAgr" name="AAgr" value="@Model.KAAgr" /> <br />
-                        Liczba rur:
-                        <br>
-                        <select asp-for="Selector3" asp-items="Model.Rury"></select>
-                        <br><br />
-                        Jednostkowy strumień ciepła [qL]
-                        <br>
-                        <input type="text" class="form-control" id="KqL" name="KqL" value="@Model.KqL" /> <br />
-                    </form>
-                    <button id="btn5" type="submit" value="btn5" onclick="click5()" name="Oblicz">Oblicz qL</button>
-                    <script>
-                        function click5()
-                        {
-                            document.getElementById("ob5").className = "style1";
-                            document.getElementById("ob5").className = "style2";
-                        }
-                    </script>
+                @* A GDYBY TAK ZAMIAST SUBMITA DAC BUTTON?
+        NIE Bo usuwa dane przy kazdym innym kliknieciu*@
+                <button id="btn2" type="submit" value="btn2" name="Oblicz">Oblicz B</button>
+                <input id="KB" name="KB" value="@Model.KB" /> <br />
 
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div id="ob6" class="style1">
-                    <h2>Łączna długość wymiennika ciepła [Lp]</h2>
-                    <form>
-                        <br />
-                        Rozstawienie rur [ep]
-                        <br>
-                        <input type="text" dclass="form-control" id="Kep" name="Kep" value="@Model.Kep"/> <br /><br />
-                        Jednostkowa wydajność cieplna  [qh]                
-                        <br>
-                        <input type="text" class="form-control" id="Kqh" name="Kqh" value="@Model.Kqh"/> <br />
-                        Łączna długość wymiennika ciepła
-                        <br>
-                        <input type="text" class="form-control" id="KLp" name="KLp" value="@Model.KLp"/> <br />
-                    </form>
-                    <br>
-                    <button id="btn6" type="submit" value="btn6" onclick="click6()" name="Oblicz">Oblicz Lp</button>
-                    <script>
-                        function click6()
-                        {
-                            document.getElementById("ob6").className = "style1";
-                            document.getElementById("ob6").className = "style2";
-                        }
-                    </script>
-                </div>
             </div>
         </div>
-        <br>
+        <div class="col-md-3">
+            <div id="ob3" class="style1">
+                <h2>Różnica temperatur [ΔT]</h2>
 
+                Współczynnik B
+                <br>
+                <input type="text" class="form-control" id="KB1" name="KB1" value="@Model.KB" /> <br />
+                Temperatura gruntu - stała [Tgr]
+                <br>
+                <input type="text" class="form-control" id="KTgr" name="KTgr" value="@Model.KTgr" /> <br />
+                Temperatura płynu  [Tgm]
+                <br>
+                <input type="text" class="form-control" id="KTgm" name="KTgm" value="@Model.KTgm" /> <br />
+                Temperatura powietrza przy gruncie [Tp]
+                <br>
+                <input type="text" class="form-control" id="Ktp" name="Ktp" value="@Model.Ktp" /> <br />
 
-        @*nie wiem czy tego w masterpagea nie dac
-          **
-                ***                 888
-                    ***         888
-                        ***888
-                        888***
-                    888        ***
-                888                ***
-         /////////////////////////////////////WRRRR   
-            *@
-        <hr />
-        <div class="row">
+                <button id="btn3" type="submit" value="btn3" name="Oblicz">Oblicz ΔT</button>
+                <input  id="DT" name="DT" value="@Model.DT" /> <br />
+            </div>
+        </div>
+    </div>
+    
+        <div class="col-md-3">
+            <div id="ob4" class="style1">
+                <h2>Współczynnik K</h2>
 
+                Współczynnik przejmowania ciepła od strony glikolu [αg]
+                <br>
+                <input type="text" class="form-control" id="Kalfag" name="Kalfag" value="@Model.Kalfag" /><br />
+                Współczynnik przejmowania ciepła od strony powietrza [αp]
+                <br>
+                <input type="text" class="form-control" id="Kalfap" name="Kalfap" value="@Model.Kalfap" /> <br />
+                Współczynnik przejmowania ciepła gruntu [λgr]
+                <br>
+                <input type="text" class="form-control" id="KAgr" name="KAgr" value="@Model.KAgr" /><br />
+                Współczynnik przejmowania ciepła rury [λr]
+                <br>
+                <input type="text" class="form-control" id="KAr" name="KAr" value="@Model.KAr" /><br />
+                Średnica wewnętrzna rury [dw]
+                <br>
+                <input type="text" class="form-control" id="Kdw" name="Kdw" value="@Model.Kdw" /> <br />
+                Średnica zewnetrzna rury [dz]
+                <br>
+                <input type="text" class="form-control" id="Kdz" name="Kdz" value="@Model.Kdz" /><br />
+                <button id="btn4" type="submit" value="btn4" name="Oblicz">Oblicz K i C</button><br>
+                Współczynnik K
+                
+                <input type="text" class="form-control" id="KK" name="KK" value="@Model.KK" />
+                Współczynnik C
+                <input type="text" class="form-control" id="KC" name="KC" value="@Model.KC" /> <br />
 
-            <input id="btn11" type="button" value="Zapisz" onclick="save()" />
-            <script>
-                function save() {
-
-                }
-            </script>
-
-
-            <input id="btn7" type="button" value="Czyść" onclick="clr()" />
-            <script>
-                function clr() {
-                    document.getElementById("ob1").className = "style1";
-                    document.getElementById("ob2").className = "style1";
-                    document.getElementById("ob3").className = "style1";
-                    document.getElementById("ob4").className = "style1";
-                    document.getElementById("ob5").className = "style1";
-                    document.getElementById("ob6").className = "style1";
-                }
-            </script>
-
-
-            <input id="btn10" type="button" value="Wypełnij" onclick="full()" />
-            <script>
-                function full() {
-
-                }
-            </script>
+            </div>
 
         </div>
-        }
+        <div class="col-md-3">
+            <div id="ob5" class="style1">
+                <h2>Jednostkowy strumień ciepła [qL]</h2>
+
+                Współczynnik przewodzenia gruntu [λgr]
+                <br>
+                <input type="text" class="form-control" id="AAgr" name="AAgr" value="@Model.Agr" /> <br />
+                Liczba rur:
+                <br>
+                <select asp-for="Selector3" asp-items="Model.Rury"></select>
+                <br><br />
+
+                <button id="btn5" type="submit" value="btn5" name="Oblicz">Oblicz qL</button>
+                <input type="text" id="KqL" name="KqL" value="@Model.KqL" /> <br />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="ob6" class="style1">
+                <h2>Łączna długość wymiennika ciepła [Lp]</h2>
+
+                <br />
+                Rozstawienie rur [ep]
+                <br>
+                <input type="text" class="form-control" id="Kep" name="Kep" value="@Model.Kep" /> <br /><br />
+                Jednostkowa wydajność cieplna  [qh]
+                <br>
+                <input type="text" class="form-control" id="Kqh" name="Kqh" value="@Model.Kqh" /> <br />
+                <br>
+                <button id="btn6" type="submit" value="btn6" name="Oblicz">Oblicz Lp</button> 
+                <input type="text"  id="KLp" name="KLp" value="@Model.KLp" /> <br />
+            </div>
+        </div>
+    
+    <br>
+</form>
+}
+<div class="row"></div>
+<hr />
+
+    @*nie wiem czy tego w masterpagea nie dac
+         **
+               ***                 888
+                   ***         888
+                       ***888
+                       888***
+                   888        ***
+               888                ***
+        /////////////////////////////////////WRRRR
+    *@
