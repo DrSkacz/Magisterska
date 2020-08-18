@@ -4,6 +4,9 @@
     Layout = "_Layout";
 }
 
+@*
+"MagisterkaContext": "Server=(localdb)\\mssqllocaldb;Database=MagisterkaContext-a5f5efaa-a4ec-43b4-a29b-7f6673c7a3bd;Trusted_Connection=True;MultipleActiveResultSets=true", 
+    *@
 <!DOCTYPE html>
 
 <html>
@@ -13,217 +16,49 @@
     <title>Podgląd Bazy</title>
 </head>
 <body>
-<b>
-    <a asp-action="Create"><b>Dodaj nowe</b></a>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RQg)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RFi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RQ0)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RXo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RDz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rtinf)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KQc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KCOP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KQ0)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KH)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KZ)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KB)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KTgr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KTgm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Ktp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kalfag)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kalfap)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KAgr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Agr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KAr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kdw)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kdz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KK)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KqL)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kqh)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kep)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KLp)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RQg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RFi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RQ0)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RXo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RDz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rtinf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KQc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KCOP)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KQ0)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KH)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KZ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KTgr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KTgm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ktp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kalfag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kalfap)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KAgr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Agr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KAr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kdw)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kdz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KK)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KqL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kqh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KLp)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <b>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+
+                        @Html.DisplayNameFor(model => model.DATA)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nazwa)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Opis)
+                    </th>
+                    <th>
+                        OPCJE
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DATA)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nazwa)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Opis)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a asp-action="Create"><b>Dodaj nowe rekordy</b></a>
+       
 </body>
 </html>

@@ -10,7 +10,11 @@ namespace Magisterka.Models
     {
         public int Id { get; set; }
 
-        public string Selector { get; set; }
+        public string DATA { get; set; }
+
+        public string Nazwa{ get; set; }
+
+        public string Opis { get; set; }
 
         public double RQg { get; set; }
 

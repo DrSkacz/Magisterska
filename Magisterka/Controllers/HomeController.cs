@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+
 using Magisterka.Models;
 
 namespace Magisterka.Controllers
@@ -162,6 +163,7 @@ namespace Magisterka.Controllers
                     c.BOX1 = "style2";
                     c.BOX2 = "style1";
                     return View(c);
+
 
                 case "btn9":
                     Convert.ToDouble(c.Selector1);
