@@ -32,6 +32,10 @@ namespace Magisterka.Models
 
         public string Selector1 { get; set; }
 
+        public string BOX1 { get; set; }
+
+        public string BOX2 { get; set; }
+
         public List<SelectListItem> Glebokosc { get; set; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "-3,5", Text = "0" },

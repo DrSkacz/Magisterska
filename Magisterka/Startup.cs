@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Magisterka.Models;
 
 namespace Magisterka
 {
@@ -34,6 +35,9 @@ namespace Magisterka
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<MagisterkaContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MagisterkaContext")));
             /*  CZEMU MI TO NIE DZIAŁA?
             services.AddControllersWithViews();
 

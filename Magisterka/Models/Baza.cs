@@ -6,11 +6,30 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Magisterka.Models
 {
-    public class PKO
+    public class Baza
     {
-        //[RegularExpression(@"^ 0 - 9, 0 - 9] + $")]
-        //[StringLength(5)]
-        //[Required]
+        public int Id { get; set; }
+
+        public string Selector { get; set; }
+
+        public double RQg { get; set; }
+
+        public double RFi { get; set; }
+
+        public double Rro { get; set; }
+
+        public double RQ0 { get; set; }
+
+        public double RXo { get; set; }
+
+        public double RDz { get; set; }
+
+        public double Rtinf { get; set; }
+
+        public double Rt { get; set; }
+
+        public double RL { get; set; }
+
         public double KQc { get; set; }
 
         public double KCOP { get; set; }
@@ -56,23 +75,6 @@ namespace Magisterka.Models
         public double Kep { get; set; }
 
         public double KLp { get; set; }
-
-        public string Selector3 { get; set; }
-
-        public string BOX1 { get; set; }
-        public string BOX2 { get; set; }
-        public string BOX3 { get; set; }
-        public string BOX4 { get; set; }
-        public string BOX5 { get; set; }
-        public string BOX6 { get; set; }
-
-        public List<SelectListItem> Rury { get; } = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "1", Text = "1" },
-            new SelectListItem { Value = "1,5", Text = "2" },
-            new SelectListItem { Value = "1,8", Text = "3"  },
-            new SelectListItem { Value = "2,1", Text = "4"  },
-        };
 
     }
 }

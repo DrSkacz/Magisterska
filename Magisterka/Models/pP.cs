@@ -13,6 +13,9 @@ namespace Magisterka.Models
         //[StringLength(5)]
         //[Required]
         //Raczej
+
+            public string STYL { get; set; }
+
             public string PVALUE { get; set; } //Conversja jeszcze
 
             public double PVALUE2 { get; set; } //jest texbox co bedzie w double pozniej 

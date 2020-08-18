@@ -9,8 +9,6 @@
 </head>
 @using (Html.BeginForm("PoziomyRubik", "Home", FormMethod.Post))
 {
-    //ON JUZ JEST NIE AKTUALNY xD
-
 
     <h3>@ViewData["Message"]</h3>
     <div>
@@ -19,7 +17,7 @@
 
 
             <div class="col-md-3">
-                <div id="ob8" class="style1">
+                <div id="ob8" class="@Model.BOX1">
                     <h2>Moc cieplna [Q0]</h2>
                     <br>
                     Moc grzewcza pompy ciepła w kW [Qg]
@@ -29,13 +27,8 @@
                     <br>
                     <input type="Text" class="form-control" id="RFi" name="RFi" value="@Model.RFi" />
                     <br><br />
-                    <button id="btn8" type="submit" value="btn8" onclick="click8()" name="Oblicz">Oblicz</button>
-                    <script>
-                        function click8() {
-                            document.getElementById("ob8").className = "style1";
-                            document.getElementById("ob8").className = "style2";
-                        }
-                    </script>
+                    <button id="btn8" type="submit" value="btn8" name="Oblicz">Oblicz</button>
+                    <input type="Text" id="RQ0a" name="RQ0a" value="@Model.RQ0" />
                 </div>
 
             </div>
@@ -44,53 +37,37 @@
 
             <div class="col-md-3">
 
-                <div id="ob9" class="style1">
+                <div id="ob9" class="@Model.BOX2">
                     <h2>Długość rur[L]</h2>
 
                     Moc cieplna pobierana z gruntu [Q0]
                     <br>
                     <input type="Text" class="form-control" id="RQ0" name="RQ0" value="@Model.RQ0" />
-                    <br><br />
+                    <br />
                     Głębokośc ułożenia rury:
                     <br>
-                    @*
-           @Html.DropDownList("Rodzaj gruntu:", Model.Glebokosc)
-        <select asp-for="Lista1" asp-items="Model.Listy"></select>
-                    *@
-                    <select asp-for="Selector1" asp-items="Model.Glebokosc"></select>
+                    <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
 
-                    <br><br />
+                   <br /><br />
                     Średnica zewnętrzna rury [DZ]
                     <br>
                     <input type="Text" class="form-control" id="RDz" name="RDz" value="@Model.RDz" />
-                    <br><br />
+                    <br />
                     Temperatura gruntu na glebokosci x [t∞]
                     <br>
                     <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
-                    <br><br />
+                    <br />
                     Temperatura nośnika ciepła odpływająca z wymiennika gruntowego [t]
                     <br>
                     <input type="Text" class="form-control" id="Rt" name="Rt" value="@Model.Rt" />
-                    <br><br />
+                   <br />
                     Rodzaj gruntu:
                     <br>
-                    @* @Html.DropDownList("Rodzaj gruntu:", Model.Gleba)*@
                     <select asp-for="Selector2" asp-items="Model.Gleba"></select>
                     <br><br />
 
-                    Łączna długość wymiennika ciepła [L]
-                    <br>
-                    <input type="Text" class="form-control" id="RL" name="RL" value="@Model.RL" />
-                    <br><br />
-
-                    <button id="btn9" type="submit" value="btn9" onclick="click8()" name="Oblicz">Oblicz L</button>
-                    <script>
-                        function click9() {
-                            document.getElementById("ob9").className = "style1";
-                            document.getElementById("ob9").className = "style2";
-                        }
-                    </script>
-
+                    <button id="btn9" type="submit" value="btn9" name="Oblicz">Oblicz L</button>
+                    <input type="Text"  id="RL" name="RL" value="@Model.RL" />
                 </div>
             </div>
 
