@@ -39,11 +39,7 @@ namespace Magisterka
 
             services.AddDbContext<MagisterkaContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MagisterkaContext")));
-            /*  CZEMU MI TO NIE DZIAŁA?
-            services.AddControllersWithViews();
-
-            services.AddDbContext<MvcMovieContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MvcMovieContext")));   */
+           
         }
 
 

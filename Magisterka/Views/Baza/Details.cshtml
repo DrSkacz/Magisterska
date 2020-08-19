@@ -17,16 +17,21 @@
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
         <hr />
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <h2> Obliczenia wg Rubika</h2>
                 <dl class="dl-horizontal">
                     <dt>
-                        @Html.DisplayNameFor(model => model.RQg)
+                        @*
+        @Html.DisplayNameFor(model => model.RQg)
+                        *@
+                        <span title=" [Qg] Moc grzewcza pompy ciepła"> [Qg] Moc grzewcza pompy ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RQg)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.RFi)
+                        <span title="[φ] Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
+                        @*  @Html.DisplayNameFor(model => model.RFi) *@
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RFi)
@@ -75,7 +80,8 @@
                     </dd>
                 </dl>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
+                <h2> Obliczenia wg Kopcia</h2>
                 <dl class="dl-horizontal">
                     <dt>
                         @Html.DisplayNameFor(model => model.KQc)
@@ -217,8 +223,19 @@
                     </dd>
                 </dl>
             </div>
+            <div class="col-md-4">
+                <h2> Obliczenia Pionowego</h2>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KQc)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KQc)
+                    </dd>
+                </dl>
+
+            </div>
         </div>
-    </div>
         <div>
             <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
             <a asp-action="Index">Powrót do listy</a>

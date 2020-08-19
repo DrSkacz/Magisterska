@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Magisterka.Models
 {
     public class PKO
     {
-        //[RegularExpression(@"^ 0 - 9, 0 - 9] + $")]
+        //[RegularExpression(@"^[0-9',''.'\s\-]{1,40}$")]
         //[StringLength(5)]
         //[Required]
         public double KQc { get; set; }

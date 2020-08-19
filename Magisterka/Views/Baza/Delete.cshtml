@@ -1,6 +1,9 @@
 ﻿@model Magisterka.Models.Baza
 
 @{
+    ViewData["Title"] = "Usuwanie";
+}
+@{
     Layout = "_Layout";
 }
 
@@ -13,211 +16,211 @@
 </head>
 <body>
 
-<h3>Czy jesteś pewien, że chesz usunąć?</h3>
-<div>
-    <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RQg)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RQg)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RFi)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RFi)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rro)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rro)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RQ0)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RQ0)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RXo)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RXo)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RDz)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RDz)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rtinf)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rtinf)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rt)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rt)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.RL)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RL)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KQc)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KQc)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KCOP)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KCOP)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KQ0)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KQ0)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KH)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KH)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KZ)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KZ)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KB)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KB)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KTgr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KTgr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DT)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DT)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KTgm)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KTgm)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Ktp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Ktp)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kalfag)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kalfag)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kalfap)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kalfap)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KAgr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KAgr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Agr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Agr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KAr)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KAr)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kdw)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kdw)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kdz)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kdz)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KK)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KK)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KC)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KC)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KqL)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KqL)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kqh)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kqh)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Kep)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Kep)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.KLp)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.KLp)
-        </dd>
-    </dl>
-</div>   
+    <h3>Czy jesteś pewien, że chesz usunąć?</h3>
+    <div>
+        <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RQg)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RQg)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RFi)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RFi)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Rro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Rro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RQ0)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RQ0)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RXo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RXo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RDz)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RDz)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Rtinf)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Rtinf)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Rt)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Rt)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RL)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RL)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KQc)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KQc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KCOP)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KCOP)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KQ0)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KQ0)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KH)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KH)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KZ)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KZ)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KB)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KB)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KTgr)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KTgr)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DT)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DT)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KTgm)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KTgm)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ktp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ktp)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kalfag)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kalfag)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kalfap)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kalfap)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KAgr)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KAgr)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Agr)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Agr)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KAr)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KAr)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kdw)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kdw)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kdz)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kdz)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KK)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KK)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KC)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KC)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KqL)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KqL)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kqh)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kqh)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Kep)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Kep)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KLp)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.KLp)
+            </dd>
+        </dl>
+    </div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Usuń" class="btn btn-default" /> | <a asp-action="Index">Powrót do listy</a>
     </form>
-        
-    
+
+
 
 </body>
 </html>
