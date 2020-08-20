@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/site.css" />
     <title>Szczegóły</title>
 </head>
 <body>
@@ -22,58 +23,58 @@
                 <dl class="dl-horizontal">
                     <dt>
                         @*
-        @Html.DisplayNameFor(model => model.RQg)
+                         @Html.DisplayNameFor(model => model.RQg)
                         *@
-                        <span title=" [Qg] Moc grzewcza pompy ciepła"> [Qg] Moc grzewcza pompy ciepła</span>
+                        <span title="Moc grzewcza pompy ciepła">[Qg] Moc grzewcza pompy ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RQg)
                     </dd>
                     <dt>
-                        <span title="[φ] Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
-                        @*  @Html.DisplayNameFor(model => model.RFi) *@
+                        <span title="Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
+                        @*  
+                            @Html.DisplayNameFor(model => model.RFi) 
+                        *@
                     </dt>
                     <dd>
+
                         @Html.DisplayFor(model => model.RFi)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Rro)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Rro)
-                    </dd>
-                    <dt>
+                        <span title="Moc cieplna pobierana z gruntu">[Q0] Moc cieplna pobierana z gruntu</span>
                         @Html.DisplayNameFor(model => model.RQ0)
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RQ0)
                     </dd>
+                    @*
                     <dt>
                         @Html.DisplayNameFor(model => model.RXo)
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RXo)
                     </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RDz)
+                    *@
+                    <dt>         
+                        <span title="Średnica zewnętrzna rury">[DZ] Średnica zewnętrzna rury</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RDz)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Rtinf)
+                        <span title="Temperatura gruntu na glebokosci">[t∞] Temperatura gruntu na glebokosci x</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Rtinf)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Rt)
+                        <span title="Temperatura nośnika ciepła odpływająca z wymiennika gruntowego">[t] Temperatura nośnika ciepła odpływająca z wymiennika gruntowego</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Rt)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.RL)
+                        <span title="Długość rur">[L] Długość rury wymiennika ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.RL)
@@ -84,139 +85,139 @@
                 <h2> Obliczenia wg Kopcia</h2>
                 <dl class="dl-horizontal">
                     <dt>
-                        @Html.DisplayNameFor(model => model.KQc)
+                        <span title="Zapotrzebowanie na moc cieplną pompy ciepła">[Qc] Zapotrzebowanie na moc cieplną pompy ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KQc)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KCOP)
+                        <span title="Współczynnik efektywności pompy">[COP] Współczynnik efektywności pompy </span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KCOP)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KQ0)
+                        <span title="Moc cieplna">[Q0] Moc cieplna</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KQ0)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KH)
+                        <span title="Głębokość osadzenia wymiennika">[H] Głębokość osadzenia wymiennika</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KH)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KZ)
+                        <span title="Głębokość stałej temperatury gruntu">[Z] Głębokość stałej temperatury gruntu</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KZ)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KB)
+                        <span title="Współczynnik B">Współczynnik B</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KB)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KTgr)
+                        <span title="Temperatura gruntu - stała">[Tgr] Temperatura gruntu - stała</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KTgr)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.DT)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.DT)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.KTgm)
+                        <span title="Temperatura płynu">[Tgm] Temperatura płynu </span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KTgm)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Ktp)
+                        <span title="Temperatura powietrza przy gruncie">[Tp] Temperatura powietrza przy gruncie</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Ktp)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Kalfag)
+                        <span title="Różnica temperatur">[ΔT] Różnica temperatur</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DT)
+                    </dd>
+                    <dt>
+                        <span title="Współczynnik przejmowania ciepła od strony glikolu">[αg] Współczynnik przejmowania ciepła od strony glikolu</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Kalfag)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Kalfap)
+                        <span title="Współczynnik przejmowania ciepła od strony powietrza">[αp] Współczynnik przejmowania ciepła od strony powietrza</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Kalfap)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KAgr)
+                        <span title="Współczynnik przejmowania ciepła gruntu">[λgr] Współczynnik przejmowania ciepła gruntu</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KAgr)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Agr)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Agr)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.KAr)
+                        <span title="Współczynnik przejmowania ciepła rury">[λr] Współczynnik przejmowania ciepła rury</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KAr)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Kdw)
+                        <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Kdw)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Kdz)
+                        <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Kdz)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KK)
+                        <span title="Współczynnik K">Współczynnik K</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KK)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KC)
+                        <span title="Współczynnik C">Współczynnik C</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KC)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KqL)
+                        <span title="Współczynnik przewodzenia gruntu">[λgr] Współczynnik przewodzenia gruntu </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Agr)
+                    </dd>
+                    <dt>
+                        <span title="Jednostkowy strumień ciepła">[qL] Jednostkowy strumień ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KqL)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.Kqh)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kqh)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Kep)
+                        <span title="Rozstawienie rur">[ep] Rozstawienie rur</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.Kep)
                     </dd>
                     <dt>
-                        @Html.DisplayNameFor(model => model.KLp)
+                        <span title="Jednostkowa wydajność cieplna">[qh] Jednostkowa wydajność cieplna </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Kqh)
+                    </dd>
+                    <dt>
+                        <span title="Łączna długość wymiennika ciepła">[Lp] Łączna długość wymiennika ciepła</span>
                     </dt>
                     <dd>
                         @Html.DisplayFor(model => model.KLp)
@@ -240,5 +241,6 @@
             <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
             <a asp-action="Index">Powrót do listy</a>
         </div>
+    </div>
 </body>
 </html>
