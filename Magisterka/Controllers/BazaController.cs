@@ -44,9 +44,62 @@ namespace Magisterka.Controllers
         // GET: Baza/Create
         public IActionResult Create()
         {
-            return View();
+            var model = new Baza();
+            if (TempData["RQg"] != null)
+            {
+                model.RQg = TempData["RQg"].ToString();
+                TempData.Remove("RQg");
+            }
+            if (TempData["RFi"] != null)
+            {
+                model.RFi = TempData["RFi"].ToString();
+                TempData.Remove("RFi");
+            }
+            if (TempData["RQ0"] != null)
+            {
+                model.RQ0 = TempData["RQ0"].ToString();
+                TempData.Remove("RQ0");
+            }
+            if (TempData["RXo"] != null)
+            {
+                model.RXo = TempData["RXo"].ToString();
+                TempData.Remove("RXo");
+            }
+            if (TempData["RDz"] != null)
+            {
+                model.RDz = TempData["RDz"].ToString();
+                TempData.Remove("RDz");
+            }
+            if (TempData["Rtinf"] != null)
+            {
+                model.Rtinf = TempData["Rtinf"].ToString();
+                TempData.Remove("Rtinf");
+            }
+            if (TempData["Rt"] != null)
+            {
+                model.Rt = TempData["Rt"].ToString();
+                TempData.Remove("Rt");
+            }
+            if (TempData["RL"] != null)
+            {
+                model.RL = TempData["RL"].ToString();
+                TempData.Remove("RL");
+            }
+            return View(model);
         }
 
+        /*
+               
+        public ActionResult Create(Baza c)
+        {
+            if (TempData["RQ0"] != null)
+            {
+                c.RQ0 = TempData["RQ0"].ToString();
+            }
+            return View(c);
+        }
+
+    */
         // POST: Baza/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -56,15 +109,19 @@ namespace Magisterka.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RXo,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp")] Baza baza)
         {
-                if (ModelState.IsValid)
+ 
+            if (ModelState.IsValid)
                 {
                     _context.Add(baza);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-
+            
             return View(baza);
         }
+
+
+
 
         // GET: Baza/Edit/5
         public async Task<IActionResult> Edit(int? id)

@@ -48,7 +48,7 @@
                     <br>
                     <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
 
-                   <br /><br />
+                    <br /><br />
                     Średnica zewnętrzna rury [DZ]
                     <br>
                     <input type="Text" class="form-control" id="RDz" name="RDz" value="@Model.RDz" />
@@ -60,54 +60,55 @@
                     Temperatura nośnika ciepła odpływająca z wymiennika gruntowego [t]
                     <br>
                     <input type="Text" class="form-control" id="Rt" name="Rt" value="@Model.Rt" />
-                   <br />
+                    <br />
                     Rodzaj gruntu:
                     <br>
                     <select asp-for="Selector2" asp-items="Model.Gleba"></select>
                     <br><br />
 
                     <button id="btn9" type="submit" value="btn9" name="Oblicz">Oblicz L</button>
-                    <input type="Text"  id="RL" name="RL" value="@Model.RL" />
+                    <input type="Text" id="RL" name="RL" value="@Model.RL" />
                 </div>
             </div>
 
         </div>
-
-
-
-
-
-
         <hr />
-        @*
         <div class="row">
-
-
-            <input id="btn12" type="button" value="Zapisz" onclick="save2()" />
-            <script>
-                function save2() {
-
-                }
-            </script>
-
-
-            <input id="btn13" type="button" value="Czyść" onclick="clr2()" />
-            <script>
-                function clr2() {
-                    document.getElementById("ob8").className = "style1";
-                    document.getElementById("ob9").className = "style1";
-                }
-            </script>
-
-
-            <input id="btn14" type="button" value="Wypełnij" onclick="full2()" />
-            <script>
-                function full2() {
-
-                }
-            </script>
-
+            <div class="form-group">
+                <button id="zapisz1" type="submit" value="zapisz1" name="Oblicz">Zapisz</button>
+            </div>
         </div>
-        *@
-    </div>
-}
+
+
+            @*
+            <div class="row">
+
+
+                <input id="btn12" type="button" value="Zapisz" onclick="save2()" />
+                <script>
+                    function save2() {
+
+                    }
+                </script>
+
+
+                <input id="btn13" type="button" value="Czyść" onclick="clr2()" />
+                <script>
+                    function clr2() {
+                        document.getElementById("ob8").className = "style1";
+                        document.getElementById("ob9").className = "style1";
+                    }
+                </script>
+
+
+                <input id="btn14" type="button" value="Wypełnij" onclick="full2()" />
+                <script>
+                    function full2() {
+
+                    }
+                </script>
+
+            </div>
+            *@
+        </div>
+        }

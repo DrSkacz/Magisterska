@@ -41,14 +41,13 @@ namespace Magisterka.Models
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string RQ0 { get; set; }
-
         //WARTOSC Z SELECTA2 nie wiem czy jest potrzebna
-        /*
+        
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string RXo { get; set; }
-        */
+        
 
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]

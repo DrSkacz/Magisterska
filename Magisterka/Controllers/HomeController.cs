@@ -263,7 +263,6 @@ namespace Magisterka.Controllers
                     }
                     return View(c);
 
-
                 case "btn9":
                     if (ModelState.IsValid)
                     {
@@ -284,18 +283,29 @@ namespace Magisterka.Controllers
                         ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
+                case "zapisz1":
+                    TempData["RFi"] = c.RFi;
+                    TempData["RQg"] = c.RQg;
+                    TempData["RQ0"] = c.RQ0;
+                    TempData["RXo"] = c.RXo;
+                    TempData["RDz"] = c.RDz;
+                    TempData["Rtinf"] = c.Rtinf;
+                    TempData["Rt"] = c.Rt;
+                    TempData["RL"] = c.RL;
+                    return RedirectToAction("Create", "Baza");
             }
-
             return View(c);
         }
-        /*
-         
-             
-        STRONA PIONOWEGO     
-             
-             
-        */
-        public IActionResult Pionowy()
+
+
+            /*
+
+
+            STRONA PIONOWEGO     
+
+
+            */
+            public IActionResult Pionowy()
         {
             ViewData["Message"] = "Obliczenia długosci pionowego wymiennika ciepła";
             var model = new PP();
@@ -309,23 +319,24 @@ namespace Magisterka.Controllers
         public ActionResult Pionowy(PP c, string Oblicz)
             
             {
-                if (Oblicz == "btn4")
-                {
-                // c.PVALUE to warotsc dropdownu xD ;
-
-                Convert.ToDouble(c.PVALUE);
-                double x;
-                x = Convert.ToDouble(c.PVALUE);
-                c.PVALUE2 = x;
-                c.STYL = "style2";
+            switch (Oblicz)
+            {
+                case "btn4":
+                    if (ModelState.IsValid)
+                    {
+                        Convert.ToDouble(c.PVALUE);
+                        double x;
+                        x = Convert.ToDouble(c.PVALUE);
+                        c.PVALUE2 = x;
+                        c.STYL = "style2";
+                    }
+                    else
+                    {
+                        c.STYL = "style3";
+                    }
+                    return View(c);
             }
-                else if (Oblicz == "")
-                {
-                    //NIE WIEM JESZCZE
-                }
-            
-
-            return View(c);
+        return View(c);
         }
 
         /*
