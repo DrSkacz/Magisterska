@@ -45,7 +45,20 @@ namespace Magisterka.Controllers
         public IActionResult Create()
         {
             var model = new Baza();
-            if (TempData["RQg"] != null)
+       /*
+             int x;
+             x=  model.Zmienne[int value]  ;
+             for (int n = 1; n < x; ++n)
+            {
+               if (TempData[Convert.ToString(model.Zmienne)] != null)
+                {
+                    model.Zmienne[index] = TempData[Convert.ToString(model.Zmienne)].ToString();
+                   TempData.Remove(Convert.ToString(model.Zmienne));
+                 }
+            }
+   */
+      
+              if (TempData["RQg"] != null)
             {
                 model.RQg = TempData["RQg"].ToString();
                 TempData.Remove("RQg");

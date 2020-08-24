@@ -216,6 +216,31 @@ namespace Magisterka.Controllers
                         ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
+                case "zapisz2":
+                    TempData["KQc"] = c.KQc;
+                    TempData["KCOP"] = c.KCOP;
+                    TempData["KQ0"] = c.KQ0;
+                    TempData["KH"] = c.KH;
+                    TempData["KZ"] = c.KZ;
+                    TempData["KB"] = c.KB;
+                    TempData["KTgr"] = c.KTgr;
+                    TempData["DT"] = c.DT;
+                    TempData["KTgm"] = c.KTgm;
+                    TempData["KTp"] = c.Ktp;
+                    TempData["Kalfag"] = c.Kalfag;
+                    TempData["Kalfap"] = c.Kalfap;
+                    TempData["KAgr"] = c.KAgr;
+                    TempData["Agr"] = c.Agr;
+                    TempData["KAr"] = c.KAr;
+                    TempData["Kdw"] = c.Kdw;
+                    TempData["Kdz"] = c.Kdz;
+                    TempData["KK"] = c.KK;
+                    TempData["KC"] = c.KC;
+                    TempData["KqL"] = c.KqL;
+                    TempData["Kqh"] = c.Kqh;
+                    TempData["Kep"] = c.Kep;
+                    TempData["KLp"] = c.KLp;
+                    return RedirectToAction("Create", "Baza");
             }
 
             return View(c);
@@ -307,7 +332,7 @@ namespace Magisterka.Controllers
             */
             public IActionResult Pionowy()
         {
-            ViewData["Message"] = "Obliczenia długosci pionowego wymiennika ciepła";
+            ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
             var model = new PP();
             model.PVALUE = "?";
             model.STYL = "style1";
@@ -324,15 +349,19 @@ namespace Magisterka.Controllers
                 case "btn4":
                     if (ModelState.IsValid)
                     {
-                        Convert.ToDouble(c.PVALUE);
-                        double x;
-                        x = Convert.ToDouble(c.PVALUE);
-                        c.PVALUE2 = x;
-                        c.STYL = "style2";
+                        double suma1, suma2= 0;
+                        for (int n = 1; n < c.SUi; ++n)
+                        {
+                           suma1 = (c.SLambdai * n);
+                            suma2 = suma2 + n;
+                            c.SQv = suma1/suma2;
+                        }
+                            
                     }
                     else
                     {
                         c.STYL = "style3";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
             }

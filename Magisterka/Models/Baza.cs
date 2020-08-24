@@ -184,5 +184,15 @@ namespace Magisterka.Models
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string KLp { get; set; }
 
+
+        public List<SelectListItem> Zmienne { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "RQg", Text = "RQg" },
+            new SelectListItem { Value = "RQg", Text = "RQg" },
+            new SelectListItem { Value = "RQg", Text = "RQg"  },
+            new SelectListItem { Value = "RQg", Text = "RQg"  },
+        };
+
+
     }
 }

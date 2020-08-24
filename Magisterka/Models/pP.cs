@@ -15,15 +15,14 @@ namespace Magisterka.Models
         //[Required]
         //Raczej
 
-            public string STYL { get; set; }
-
-            public string PVALUE { get; set; } //Conversja jeszcze
-
-            public double PVALUE2 { get; set; } //jest texbox co bedzie w double pozniej 
-
-            public double TB { get; set; }
+        public string STYL { get; set; }
 
 
+        public double SLambdai { get; set; }
+        public double SUi { get; set; }
+        public double SQv { get; set; }
+
+        public string PVALUE { get; set; }
         public List<SelectListItem> LISTA { get; set; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "2,9", Text = "Amfibolit" },
