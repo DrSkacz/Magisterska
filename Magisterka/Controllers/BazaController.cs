@@ -45,74 +45,76 @@ namespace Magisterka.Controllers
         public IActionResult Create()
         {
             var model = new Baza();
-       /*
-             int x;
-             x=  model.Zmienne[int value]  ;
-             for (int n = 1; n < x; ++n)
+
+            List<string> zmienne = new List<string>();
+            zmienne.Add("Zmienna zerowa");
+            zmienne.Add("RQg");
+            zmienne.Add("RQ0");
+            zmienne.Add("RQg");
+            zmienne.Add("RDz");
+            zmienne.Add("Rtinf");
+            zmienne.Add("Rt");
+            zmienne.Add("RL");
+//////////////////////////////////////////////////
+            zmienne.Add("KQc");
+            zmienne.Add("KCOP");
+            zmienne.Add("KQ0");
+            zmienne.Add("KH");
+            zmienne.Add("KZ");
+            zmienne.Add("KB");
+            zmienne.Add("KTgr");
+            zmienne.Add("DT");
+            zmienne.Add("KTgm");
+            zmienne.Add("KTp");
+            zmienne.Add("Kalfag");
+            zmienne.Add("Kalfap");
+            zmienne.Add("KAgr");
+            zmienne.Add("Agr");
+            zmienne.Add("KAr");
+            zmienne.Add("Kdw");
+            zmienne.Add("Kdz");
+            zmienne.Add("KK");
+            zmienne.Add("KC");
+            zmienne.Add("KqL");
+            zmienne.Add("Kqh");
+            zmienne.Add("Kep");
+            zmienne.Add("KLp");
+            //////////////////////////////////////////////////
+            zmienne.Add("SQv");
+            zmienne.Add("SLo");
+            zmienne.Add("SQc");
+            zmienne.Add("SCOP");
+            zmienne.Add("STsp"); 
+            zmienne.Add("SQ0");
+            zmienne.Add("SLw");
+            zmienne.Add("SdLw");
+            //////////////////////////////////////////////////
+            //,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0
+            int x;
+            string cos;
+            x = zmienne.Count();    
+            for (int n = 1; n < x; ++n)
             {
-               if (TempData[Convert.ToString(model.Zmienne)] != null)
+                cos = zmienne[n];
+                if (TempData[zmienne[n]] != null)
                 {
-                    model.Zmienne[index] = TempData[Convert.ToString(model.Zmienne)].ToString();
-                   TempData.Remove(Convert.ToString(model.Zmienne));
-                 }
+                    string a = TempData[cos].ToString();
+                    model.GetType().GetProperty(cos).SetValue(model, a, null);
+                    TempData.Remove(cos);
+                }
+
             }
-   */
-      
-              if (TempData["RQg"] != null)
+
+
+
+         /*   if (TempData["RQg"] != null)
             {
                 model.RQg = TempData["RQg"].ToString();
                 TempData.Remove("RQg");
-            }
-            if (TempData["RFi"] != null)
-            {
-                model.RFi = TempData["RFi"].ToString();
-                TempData.Remove("RFi");
-            }
-            if (TempData["RQ0"] != null)
-            {
-                model.RQ0 = TempData["RQ0"].ToString();
-                TempData.Remove("RQ0");
-            }
-            if (TempData["RXo"] != null)
-            {
-                model.RXo = TempData["RXo"].ToString();
-                TempData.Remove("RXo");
-            }
-            if (TempData["RDz"] != null)
-            {
-                model.RDz = TempData["RDz"].ToString();
-                TempData.Remove("RDz");
-            }
-            if (TempData["Rtinf"] != null)
-            {
-                model.Rtinf = TempData["Rtinf"].ToString();
-                TempData.Remove("Rtinf");
-            }
-            if (TempData["Rt"] != null)
-            {
-                model.Rt = TempData["Rt"].ToString();
-                TempData.Remove("Rt");
-            }
-            if (TempData["RL"] != null)
-            {
-                model.RL = TempData["RL"].ToString();
-                TempData.Remove("RL");
-            }
+            } */
+     
             return View(model);
         }
-
-        /*
-               
-        public ActionResult Create(Baza c)
-        {
-            if (TempData["RQ0"] != null)
-            {
-                c.RQ0 = TempData["RQ0"].ToString();
-            }
-            return View(c);
-        }
-
-    */
         // POST: Baza/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -120,7 +122,7 @@ namespace Magisterka.Controllers
         //TYLKO DATA,Nazwa,Opis wymagane powinny byc
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RXo,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp")] Baza baza)
+        public async Task<IActionResult> Create([Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0")] Baza baza)
         {
  
             if (ModelState.IsValid)
@@ -157,7 +159,7 @@ namespace Magisterka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RXo,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp")] Baza baza)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0")] Baza baza)
         {
             if (id != baza.Id)
             {

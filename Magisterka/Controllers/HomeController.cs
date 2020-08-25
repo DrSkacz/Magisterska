@@ -334,36 +334,112 @@ namespace Magisterka.Controllers
         {
             ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
             var model = new PP();
-            model.PVALUE = "?";
-            model.STYL = "style1";
+            model.BOX1 = "style1";
+            model.BOX2 = "style1";
+            model.BOX3 = "style1";
+            model.BOX4 = "style1";
             return View(model);
 
         }
 
         [HttpPost]
         public ActionResult Pionowy(PP c, string Oblicz)
-            
             {
             switch (Oblicz)
             {
-                case "btn4":
+                case "btn5":
                     if (ModelState.IsValid)
                     {
-                        double suma1, suma2= 0;
-                        for (int n = 1; n < c.SUi; ++n)
-                        {
-                           suma1 = (c.SLambdai * n);
-                            suma2 = suma2 + n;
-                            c.SQv = suma1/suma2;
-                        }
-                            
+                        c.SUi = c.SUia + c.SUib+ c.SUic + c.SUid + c.SUie + c.SUif;
+                        c.SLambdai = Convert.ToDouble(c.Selector4a)*c.SUia + Convert.ToDouble(c.Selector4b) * c.SUib + Convert.ToDouble(c.Selector4c) * c.SUic + Convert.ToDouble(c.Selector4d) * c.SUid + Convert.ToDouble(c.Selector4e) * c.SUie + Convert.ToDouble(c.Selector4f) * c.SUif;
+                        c.SLambdasr = c.SLambdai / c.SUi;
+                        c.SQv = 20 * c.SLambdasr;
+                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.BOX1 = "style2";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style1";
                     }
                     else
                     {
-                        c.STYL = "style3";
+                        c.BOX1 = "style3";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style1";
                         ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
+
+                case "btn6":
+                    if (ModelState.IsValid)
+                    {
+                        c.SQ0 = c.SQc * (1-(1/c.SCOP));
+                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.BOX2 = "style2";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style1";
+                    }
+                    else
+                    {
+                        c.BOX2 = "style3";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style1";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                    }
+                    return View(c);
+
+                case "btn7":
+                    if (ModelState.IsValid)
+                    {
+                        c.SLo =(c.SQ0*1000)/c.SQv;
+                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.BOX2 = "style1";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style2";
+                        c.BOX4 = "style1";
+                    }
+                    else
+                    {
+                        c.BOX2 = "style1";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style3";
+                        c.BOX4 = "style1";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                    }
+                    return View(c);
+
+                case "btn8":
+                    if (ModelState.IsValid)
+                    {
+                        c.SdLw = ((c.STsp - 2000) / 2000) * 100;
+                        c.SLw = c.SLo*(1+(c.SdLw/100));
+                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.BOX2 = "style1";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style2";
+                    }
+                    else
+                    {
+                        c.BOX2 = "style1";
+                        c.BOX1 = "style1";
+                        c.BOX3 = "style1";
+                        c.BOX4 = "style3";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                    }
+                    return View(c);
+                    case "zapisz3":
+                    TempData["SQv"] = c.SQv;
+                    TempData["SLo"] = c.SLo;     
+                    TempData["SQc"] = c.SQc;
+                    TempData["SCOP"] = c.SCOP;
+                    TempData["STsp"] = c.STsp;
+                    TempData["SQ0"] = c.SQ0;
+                    TempData["SLw"] = c.SLw;
+                    TempData["SdLw"] = c.SdLw;
+                    return RedirectToAction("Create", "Baza");
             }
         return View(c);
         }

@@ -225,13 +225,55 @@
                 </dl>
             </div>
             <div class="col-md-4">
-                <h2> Obliczenia Pionowego</h2>
+                <h2> Obliczenia Długosci sondy pionowej</h2>
                 <dl class="dl-horizontal">
                     <dt>
-                        @Html.DisplayNameFor(model => model.KQc)
+                        <span title="Moc cieplna pompy ciepła">[Qc]Moc cieplna pompy ciepła</span>
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.KQc)
+                        @Html.DisplayFor(model => model.SQc)
+                    </dd>
+                    <dt>
+                        <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SCOP)
+                    </dd>
+                    <dt>
+                        <span title="Moc chłodnicza pompy ciepła">[Q0] Moc chłodnicza pompy ciepła </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SQ0)
+                    </dd>
+                    <dt>
+                        <span title="Jednostkowa wydajnosć gruntu">[qv] Jednostkowa wydajnosć gruntu</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SQv)
+                    </dd>
+                    <dt>
+                        <span title="Wymagana długość sondy">[Lo] Wymagana długość sondy </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SLo)
+                    </dd>
+                    <dt>
+                        <span title="Czas pracy w ciągu całego roku (podany w H)">[Tsp] Czas pracy w ciągu całego roku</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.STsp)
+                    </dd>
+                    <dt>
+                        <span title="Dodatkowa procentowa długość sondy">[Δlw]Dodatkowa procentowa długość sondy </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SdLw)
+                    </dd>
+                    <dt>
+                        <span title="Łączna długość wymiennika ciepła">[Lw] Łączna długość wymiennika ciepła</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.SLw)
                     </dd>
                 </dl>
 

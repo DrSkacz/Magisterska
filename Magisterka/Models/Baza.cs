@@ -41,13 +41,13 @@ namespace Magisterka.Models
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string RQ0 { get; set; }
-        //WARTOSC Z SELECTA2 nie wiem czy jest potrzebna
         
+        /*
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
-        public string RXo { get; set; }
-        
+        public string RXo { get; set; } 
+        */
 
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -68,6 +68,10 @@ namespace Magisterka.Models
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string RL { get; set; }
+
+        /// <summary>
+        /// ///////////////////////////////////////
+        /// </summary>
 
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -184,15 +188,49 @@ namespace Magisterka.Models
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string KLp { get; set; }
 
+        ////////////////////////////////////////
+        /////////////////////
+        ////////////////////////////////////////
+        ///
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SQv { get; set; }
 
-        public List<SelectListItem> Zmienne { get; } = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "RQg", Text = "RQg" },
-            new SelectListItem { Value = "RQg", Text = "RQg" },
-            new SelectListItem { Value = "RQg", Text = "RQg"  },
-            new SelectListItem { Value = "RQg", Text = "RQg"  },
-        };
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SLo { get; set; }
 
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SLw { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SdLw { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SQc { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SCOP { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string STsp { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string SQ0 { get; set; }
 
     }
 }

@@ -9,57 +9,178 @@
 @using (Html.BeginForm("Pionowy", "Home", FormMethod.Post))
 {
     <div class="row">
-        <div class="col-md-3">
-            <div id="ob4" class="@Model.STYL">
-                <h2>Czwarta kolumna</h2>
-                <form>
-                    @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+        <div id="ob4" class="@Model.BOX1">
+            <h2>Średni ważony wspólczynnik przewodzenia gruntu</h2>
+            <br />
+            <div class="col-md-4">
 
-                    DropDown Lista
-                    <br>
-                    <select asp-for="PVALUE" asp-items="Model.LISTA"></select>
+                1. Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUia" name="SUia" value="@Model.SUia" />
 
-                    Testowa kontrolka wynikowa
-                    <br>
-                    <input type="text" data-val="true"
-                           id="P1" name="P1" value=""> <br><br />
+                @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4a" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+                <br /><br />
 
-                </form>
-                <button id="btn4" type="submit" value="btn4" onclick="click4()" name="Oblicz">Oblicz</button>
+
+
+                2.Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUib" name="SUib" value="@Model.SUib" />
+
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4b" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+                <br /><br />
 
             </div>
+            <div class="col-md-4">
+                3. Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUic" name="SUic" value="@Model.SUic" />
 
+                @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4c" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+                <br /><br />
+
+
+
+                4. Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUid" name="SUid" value="@Model.SUid" />
+
+                @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4d" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+                <br /><br />
+
+
+            </div>
+            <div class="col-md-4">
+                5. Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUie" name="SUie" value="@Model.SUie" />
+
+                @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4e" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+                <br /><br />
+
+
+
+                6.Grubość warstwy geologicznej [m]
+                <br>
+                <input type="text" class="form-control" id="SUif" name="SUif" value="@Model.SUif" />
+
+                @* @Html.DropDownList("VALUE:", Model.LISTA); *@
+                Warstwa Geologiczna
+                <br>
+                <select asp-for="Selector4f" asp-items="Model.LISTA">
+                    <option selected value="0"></option>
+                </select>
+
+
+                <br /><br />
+            </div>
+            <button id="btn5" type="submit" value="btn5" name="Oblicz">Oblicz</button>
+            <br /><br />
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Wspólczynnik przewodzenia gruntu [W/mk]
+                        </th>
+                        <th>
+                            Grubość warstwy geologicznej [m]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input id="SLambdasr" name="SLambdasr" value="@Model.SLambdasr" />
+                        </td>
+                        <td>
+                            <input id="SUi" name="SUi" value="@Model.SUi" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <hr />
-
-
-
     <div class="row">
+        <div class="col-md-4">
+            <div id="ob5" class="@Model.BOX2">
+                <h2>Moc chłodnicza pompy ciepła [Q0]</h2>
+                <br>
+                @*
+                Jednostkowa wydajnosć gruntu [qv]
+                <br>
+                <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
+                <br>
+                *@
+                Moc cieplna pompy ciepła[Qc]
+                <br>
+                <input type="text" class="form-control" id="SQc" name="SQc" value="@Model.SQc" /> <br />
+                Współczynnik sprawności pompy ciepła [COP]
+                <br>
+                <input type="text" class="form-control" id="SCOP" name="SCOP" value="@Model.SCOP" /> <br />
 
+                <button id="btn6" type="submit" value="btn6" name="Oblicz">Oblicz Q0</button>
+                <input id="SQ0a" name="SQ0a" value="@Model.SQ0" /> <br />
+            </div>
+        </div>
 
-        <input id="btn15" type="button" value="Zapisz" onclick="save3()" />
-        <script>
-            function save3() {
+        <div class="col-md-4">
+            <div id="ob5" class="@Model.BOX3">
+                <h2>Wymagana długość sondy [Lo]</h2>
+                <br>
+                Moc chłodnicza pompy ciepła [Q0]
+                <br>
+                <input type="text" class="form-control" id="SQ0" name="SQ0" value="@Model.SQ0" /> <br />
+                Jednostkowa wydajnosć gruntu [qv]
+                <br>
+                <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
+                <button id="btn7" type="submit" value="btn7" name="Oblicz">Oblicz Lo</button>
+                <input id="SLo" name="SLo" value="@Model.SLo" /> <br />
+            </div>
+        </div>
 
-            }
-        </script>
-
-
-        <input id="btn16" type="button" value="Czyść" onclick="clr3()" />
-        @* <script>
-                function clr3() {
-                    document.getElementById("ob4").className = "style1";
-                }
-            </script>*@
-
-
-        <input id="btn17" type="button" value="Wypełnij" onclick="full3()" />
-        <script>
-            function full3() {
-
-            }
-        </script>
+        <div class="col-md-4">
+            <div id="ob5" class="@Model.BOX4">
+                <h2>Długość wymiennika pionowego [Lw]</h2>
+                <br>
+                Czas pracy w ciągu całego roku (podany w H) [Tsp]
+                <br>
+                <input type="text" class="form-control" id="STsp" name="STsp" value="@Model.STsp" /> <br />
+                <br>
+                <button id="btn8" type="submit" value="btn8" name="Oblicz">Oblicz Lw</button>
+                Dodatkowa procentowa długość sondy [Δlw]
+                <input type="text" class="form-control" id="SdLw" name="SdLw" value="@Model.SdLw" />
+                Długość wymiennika pionowego [Lw]
+                <input type="text" class="form-control" id="SLw" name="SLw" value="@Model.SLw" /> 
+            </div>
+        </div>
 
     </div>
+<hr />
+<div class="row">
+    <button id="zapisz3" type="submit" value="zapisz3" name="Oblicz">Zapisz</button>
+</div>
 }

@@ -11,7 +11,7 @@
 {
 <form>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div id="ob1" class="@Model.BOX1">
                 <h2>Moc cieplna [Q0]</h2>
 
@@ -27,7 +27,7 @@
                 <input id="KQ0" name="KQ0" value="@Model.KQ0" /> <br />
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div id="ob2" class="@Model.BOX2">
                 <h2>Współczynnik B</h2>
 
@@ -43,7 +43,7 @@
 
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div id="ob3" class="@Model.BOX3">
                 <h2>Różnica temperatur [ΔT]</h2>
 
@@ -65,39 +65,38 @@
             </div>
         </div>
     </div>
-
-    <div class="col-md-3">
-        <div id="ob4" class="@Model.BOX4">
-            <h2>Współczynnik K</h2>
-
-            Współczynnik przejmowania ciepła od strony glikolu [αg]
-            <br>
-            <input type="text" class="form-control" id="Kalfag" name="Kalfag" value="@Model.Kalfag" /><br />
-            Współczynnik przejmowania ciepła od strony powietrza [αp]
-            <br>
-            <input type="text" class="form-control" id="Kalfap" name="Kalfap" value="@Model.Kalfap" /> <br />
-            Współczynnik przejmowania ciepła gruntu [λgr]
-            <br>
-            <input type="text" class="form-control" id="KAgr" name="KAgr" value="@Model.KAgr" /><br />
-            Współczynnik przejmowania ciepła rury [λr]
-            <br>
-            <input type="text" class="form-control" id="KAr" name="KAr" value="@Model.KAr" /><br />
-            Średnica wewnętrzna rury [dw]
-            <br>
-            <input type="text" class="form-control" id="Kdw" name="Kdw" value="@Model.Kdw" /> <br />
-            Średnica zewnetrzna rury [dz]
-            <br>
-            <input type="text" class="form-control" id="Kdz" name="Kdz" value="@Model.Kdz" /><br />
-            <button id="btn4" type="submit" value="btn4" name="Oblicz">Oblicz K i C</button><br>
-            Współczynnik K
-            <input type="text" class="form-control" id="KK" name="KK" value="@Model.KK" />
-            Współczynnik C
-            <input type="text" class="form-control" id="KC" name="KC" value="@Model.KC" /> <br />
-
-        </div>
-    </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
+            <div id="ob4" class="@Model.BOX4">
+                <h2>Współczynnik K</h2>
+
+                Współczynnik przejmowania ciepła od strony glikolu [αg]
+                <br>
+                <input type="text" class="form-control" id="Kalfag" name="Kalfag" value="@Model.Kalfag" /><br />
+                Współczynnik przejmowania ciepła od strony powietrza [αp]
+                <br>
+                <input type="text" class="form-control" id="Kalfap" name="Kalfap" value="@Model.Kalfap" /> <br />
+                Współczynnik przejmowania ciepła gruntu [λgr]
+                <br>
+                <input type="text" class="form-control" id="KAgr" name="KAgr" value="@Model.KAgr" /><br />
+                Współczynnik przejmowania ciepła rury [λr]
+                <br>
+                <input type="text" class="form-control" id="KAr" name="KAr" value="@Model.KAr" /><br />
+                Średnica wewnętrzna rury [dw]
+                <br>
+                <input type="text" class="form-control" id="Kdw" name="Kdw" value="@Model.Kdw" /> <br />
+                Średnica zewnetrzna rury [dz]
+                <br>
+                <input type="text" class="form-control" id="Kdz" name="Kdz" value="@Model.Kdz" /><br />
+                <button id="btn4" type="submit" value="btn4" name="Oblicz">Oblicz K i C</button><br>
+                Współczynnik K
+                <input type="text" class="form-control" id="KK" name="KK" value="@Model.KK" />
+                Współczynnik C
+                <input type="text" class="form-control" id="KC" name="KC" value="@Model.KC" />
+
+            </div>
+        </div>
+        <div class="col-md-4">
             <div id="ob5" class="@Model.BOX5">
                 <h2>Jednostkowy strumień ciepła [qL]</h2>
 
@@ -113,7 +112,7 @@
                 <input type="text" id="KqL" name="KqL" value="@Model.KqL" /> <br />
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div id="ob6" class="@Model.BOX6">
                 <h2>Łączna długość wymiennika ciepła [Lp]</h2>
 
@@ -137,14 +136,3 @@
     <button id="zapisz2" type="submit" value="zapisz2" name="Oblicz">Zapisz</button>
 </div>
 <hr />
-
-    @*nie wiem czy tego w masterpagea nie dac
-         **
-               ***                 888
-                   ***         888
-                       ***888
-                       888***
-                   888        ***
-               888                ***
-        /////////////////////////////////////WRRRR
-    *@

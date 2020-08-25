@@ -15,14 +15,44 @@ namespace Magisterka.Models
         //[Required]
         //Raczej
 
-        public string STYL { get; set; }
+        public string BOX1 { get; set; }
+        public string BOX2 { get; set; }
+        public string BOX3 { get; set; }
+        public string BOX4 { get; set; }
 
-
-        public double SLambdai { get; set; }
-        public double SUi { get; set; }
         public double SQv { get; set; }
+        public double SLambdasr { get; set; }
+        public double SLo { get; set; }
+        public double SQc { get; set; }
+        public double SCOP { get; set; }
+        public double STsp { get; set; }
+        public double SQ0 { get; set; }
+        public double SLw { get; set; }
+        public double SdLw { get; set; }
 
-        public string PVALUE { get; set; }
+        public double SLambdai { get; set; } //do selectora <=
+        public double SUi { get; set; } // to bedzie wyswietlane
+        public double SUia { get; set; }
+        public double SUib { get; set; }
+        public double SUic { get; set; }
+        public double SUid { get; set; }
+        public double SUie { get; set; }
+        public double SUif { get; set; }
+
+        public string Selector4 { get; set; }
+
+        public string Selector4a { get; set; }
+
+        public string Selector4b { get; set; }
+
+        public string Selector4c { get; set; }
+
+        public string Selector4d { get; set; }
+
+        public string Selector4e { get; set; }
+
+        public string Selector4f { get; set; }
+
         public List<SelectListItem> LISTA { get; set; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "2,9", Text = "Amfibolit" },
