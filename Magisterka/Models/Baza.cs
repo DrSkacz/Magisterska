@@ -16,7 +16,7 @@ namespace Magisterka.Models
         public string DATA { get; set; }
 
         [Required]
-        public string Nazwa{ get; set; }
+        public string Nazwa { get; set; }
 
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -41,7 +41,7 @@ namespace Magisterka.Models
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string RQ0 { get; set; }
-        
+
         /*
         [Required(AllowEmptyStrings = true)]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -232,5 +232,80 @@ namespace Magisterka.Models
         [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
         public string SQ0 { get; set; }
 
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BDz { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BDw { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string Blambdar { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string Bn { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BRr { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BQ { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BCOP { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BTgr { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BTgo { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BRgr { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string Btp { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string Btg { get; set; }
+
+        [Required(AllowEmptyStrings = true)]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [RegularExpression(@"^[0-9',''.'\s\-]{1,40}$", ErrorMessage = "Prosze używać liczb")]
+        public string BL { get; set; }
+
     }
+
+    public class Lista
+    {
+        public string Zmienna { get; set; }
+        public string Opiszmiennej { get; set; }
+    }
+   
+
 }
+
+

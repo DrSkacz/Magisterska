@@ -31,9 +31,22 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Głowna</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="PoziomyRubik">Rubik</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="PoziomyKopec">Kopeć</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Pionowy">Pionowy</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kolektor Poziomy<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="" asp-controller="Home" asp-action="PoziomyRubik">Skrócone obliczenia wg. Rubika</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="PoziomyKopec">Szczegółowe obliczenia wg. Kopcia </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sonda Pionowa<span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a asp-area="" asp-controller="Home" asp-action="Pionowy">Skrócone obliczenia sondy pionowej</a></li>
+                            <li class="divider"></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="BoseParker">Algorytm Bose-Parkera</a></li>
+                        </ul>
+                    </li>
                     <li><a asp-area="" asp-controller="Baza" asp-action="Index">Podgląd Bazy</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">O mnie</a></li>
                 </ul>

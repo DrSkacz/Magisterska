@@ -50,15 +50,18 @@ table {
     }
 
 .style1 {
+    border: 1px solid #000;
     background-color: lightgoldenrodyellow;
 }
 
 .style2 {
     background-color: lightgreen;
+    border: 1px solid #000;
 }
 
 .style3 {
     background-color: red;
+    border: 1px solid #ffd800;
 }
 
 

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-
 using Magisterka.Models;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
 
@@ -29,7 +28,7 @@ namespace Magisterka.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Informacje o autorze programu.";
-           
+
             return View();
         }
         /*
@@ -60,19 +59,18 @@ namespace Magisterka.Controllers
         {
 
             switch (Oblicz)
-                {
-                case "btn1" :
+            {
+                case "btn1":
                     if (ModelState.IsValid)
                     {
-                        c.KQ0 = c.KQc * ((c.KCOP - 1) / c.KCOP);
-                        c.KQ0 = Math.Round(c.KQ0, 4);
+                        c.KQ0 = (c.KQc * ((c.KCOP - 1) / c.KCOP)) * 1000;
+                        c.KQ0 = Math.Round(c.KQ0, 2);
                         c.BOX1 = "style2";
                         c.BOX2 = "style1";
                         c.BOX3 = "style1";
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
                     }
                     else
                     {
@@ -97,7 +95,6 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
                     }
                     else
                     {
@@ -114,24 +111,23 @@ namespace Magisterka.Controllers
                 case "btn3":
                     if (ModelState.IsValid)
                     {
-                    c.DT = c.Ktp - c.KTgm + c.KB * (c.KTgr - c.Ktp);
-                    c.BOX1 = "style1";
-                    c.BOX2 = "style1";
-                    c.BOX3 = "style2";
-                    c.BOX4 = "style1";
-                    c.BOX5 = "style1";
-                    c.BOX6 = "style1";
-                    ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
+                        c.DT = c.Ktp - c.KTgm + (c.KB * (c.KTgr - c.Ktp));
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style2";
+                        c.BOX4 = "style1";
+                        c.BOX5 = "style1";
+                        c.BOX6 = "style1";
                     }
                     else
                     {
-                    c.BOX1 = "style1";
-                    c.BOX2 = "style1";
-                    c.BOX3 = "style3";
-                    c.BOX4 = "style1";
-                    c.BOX5 = "style1";
-                    c.BOX6 = "style1";
-                    ViewData["Message"] = "Błąd wprowadzania danych!";
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style3";
+                        c.BOX4 = "style1";
+                        c.BOX5 = "style1";
+                        c.BOX6 = "style1";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -148,7 +144,6 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style2";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
                     }
                     else
                     {
@@ -175,7 +170,6 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style2";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
                     }
                     else
                     {
@@ -203,7 +197,6 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style2";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
                     }
                     else
                     {
@@ -274,11 +267,10 @@ namespace Magisterka.Controllers
                 case "btn8":
                     if (ModelState.IsValid)
                     {
-                        c.RQ0 = c.RQg * ((c.RFi - 1) / c.RFi);
+                        c.RQ0 = c.RQg * ((c.RFi - 1) / c.RFi) * 1000;
                         c.RQ0 = Math.Round(c.RQ0, 4);
                         c.BOX1 = "style2";
                         c.BOX2 = "style1";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Rubika";
                     }
                     else
                     {
@@ -291,7 +283,6 @@ namespace Magisterka.Controllers
                 case "btn9":
                     if (ModelState.IsValid)
                     {
-                        Convert.ToDouble(c.Selector1);
                         double x, y;
                         x = Convert.ToDouble(c.Selector1);
                         y = Convert.ToDouble(c.Selector2);
@@ -299,7 +290,6 @@ namespace Magisterka.Controllers
                         c.RL = Math.Round(c.RL, 2);
                         c.BOX1 = "style1";
                         c.BOX2 = "style2";
-                        ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Rubika";
                     }
                     else
                     {
@@ -323,14 +313,14 @@ namespace Magisterka.Controllers
         }
 
 
-            /*
+        /*
 
 
-            STRONA PIONOWEGO     
+        STRONA PIONOWEGO     
 
 
-            */
-            public IActionResult Pionowy()
+        */
+        public IActionResult Pionowy()
         {
             ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
             var model = new PP();
@@ -344,17 +334,16 @@ namespace Magisterka.Controllers
 
         [HttpPost]
         public ActionResult Pionowy(PP c, string Oblicz)
-            {
+        {
             switch (Oblicz)
             {
                 case "btn5":
                     if (ModelState.IsValid)
                     {
-                        c.SUi = c.SUia + c.SUib+ c.SUic + c.SUid + c.SUie + c.SUif;
-                        c.SLambdai = Convert.ToDouble(c.Selector4a)*c.SUia + Convert.ToDouble(c.Selector4b) * c.SUib + Convert.ToDouble(c.Selector4c) * c.SUic + Convert.ToDouble(c.Selector4d) * c.SUid + Convert.ToDouble(c.Selector4e) * c.SUie + Convert.ToDouble(c.Selector4f) * c.SUif;
+                        c.SUi = c.SUia + c.SUib + c.SUic + c.SUid + c.SUie + c.SUif;
+                        c.SLambdai = Convert.ToDouble(c.Selector4a) * c.SUia + Convert.ToDouble(c.Selector4b) * c.SUib + Convert.ToDouble(c.Selector4c) * c.SUic + Convert.ToDouble(c.Selector4d) * c.SUid + Convert.ToDouble(c.Selector4e) * c.SUie + Convert.ToDouble(c.Selector4f) * c.SUif;
                         c.SLambdasr = c.SLambdai / c.SUi;
                         c.SQv = 20 * c.SLambdasr;
-                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
                         c.BOX1 = "style2";
                         c.BOX2 = "style1";
                         c.BOX3 = "style1";
@@ -373,8 +362,7 @@ namespace Magisterka.Controllers
                 case "btn6":
                     if (ModelState.IsValid)
                     {
-                        c.SQ0 = c.SQc * (1-(1/c.SCOP));
-                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.SQ0 = c.SQc * (1 - (1 / c.SCOP));
                         c.BOX2 = "style2";
                         c.BOX1 = "style1";
                         c.BOX3 = "style1";
@@ -393,8 +381,7 @@ namespace Magisterka.Controllers
                 case "btn7":
                     if (ModelState.IsValid)
                     {
-                        c.SLo =(c.SQ0*1000)/c.SQv;
-                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.SLo = (c.SQ0 * 1000) / c.SQv;
                         c.BOX2 = "style1";
                         c.BOX1 = "style1";
                         c.BOX3 = "style2";
@@ -414,8 +401,16 @@ namespace Magisterka.Controllers
                     if (ModelState.IsValid)
                     {
                         c.SdLw = ((c.STsp - 2000) / 2000) * 100;
-                        c.SLw = c.SLo*(1+(c.SdLw/100));
-                        ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
+                        c.SLw = c.SLo * (1 + (c.SdLw / 100));
+                        c.ilosc = 1;
+                        for (double n = c.SLw; n >= 100; ++c.ilosc)
+                        {
+                            n = c.SLw / c.ilosc;
+                            c.dlugosc = n;
+
+                        }
+                        c.ilosc = c.ilosc - 1;
+                        c.dlugosc = Math.Round(c.dlugosc, 2);
                         c.BOX2 = "style1";
                         c.BOX1 = "style1";
                         c.BOX3 = "style1";
@@ -430,9 +425,9 @@ namespace Magisterka.Controllers
                         ViewData["Message"] = "Błąd wprowadzania danych!";
                     }
                     return View(c);
-                    case "zapisz3":
+                case "zapisz3":
                     TempData["SQv"] = c.SQv;
-                    TempData["SLo"] = c.SLo;     
+                    TempData["SLo"] = c.SLo;
                     TempData["SQc"] = c.SQc;
                     TempData["SCOP"] = c.SCOP;
                     TempData["STsp"] = c.STsp;
@@ -441,7 +436,7 @@ namespace Magisterka.Controllers
                     TempData["SdLw"] = c.SdLw;
                     return RedirectToAction("Create", "Baza");
             }
-        return View(c);
+            return View(c);
         }
 
         /*
@@ -464,6 +459,74 @@ namespace Magisterka.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public IActionResult BoseParker()
+        {
+            ViewData["Message"] = "Algorytm Bose-Parkera";
+            var model = new Bose();
+            model.BOX1 = "style1";
+            model.BOX2 = "style1";
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult BoseParker(Bose c, string Oblicz)
+        {
+            switch (Oblicz)
+            {
+                case "btn7":
+                    if (ModelState.IsValid)
+                    {
+                        c.BDh =Math.Sqrt(c.Bn*c.BDz);
+                        c.BRr = (1/(2*Math.PI*c.Blambdar))*(Math.Log(c.BDh/(c.BDh-(c.BDz-c.BDw))));
+                        c.BOX1 = "style2";
+                        c.BOX2 = "style1";
+                    }
+                    else
+                    {
+                        c.BOX1 = "style3";
+                        c.BOX2 = "style1";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                       
+                    }
+                    return View(c);
+
+                case "btn8":
+                    if (ModelState.IsValid)
+                    {
+                        c.Bgamma = c.Btp / c.Btg;
+                        c.BL = ((c.BQ * ((c.BCOP - 1) / c.BCOP))*(c.BRr + (c.Bgamma*c.BRgr)))/(c.BTgr*c.BTgo);
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style2";
+                    }
+                    else
+                    {
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style3";
+                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                    }
+                    return View(c);
+
+                case "zapisz4":
+                    TempData["BDz"] = c.BDz;
+                    TempData["BDw"] = c.BDw;
+                    TempData["Blambdar"] = c.Blambdar;
+                    TempData["Bn"] = c.Bn;
+                    TempData["Bgamma"] = c.Bgamma;
+                    TempData["BQ"] = c.BQ;
+                    TempData["BCOP"] = c.BCOP;
+                    TempData["BTgr"] = c.BTgr;
+                    TempData["BTgo"] = c.BTgo;
+                    TempData["BRr"] = c.BRr;
+                    TempData["BRgr"] = c.BRgr;
+                    TempData["Btp"] = c.Btp;
+                    TempData["Btg"] = c.Btg;
+                    TempData["BL"] = c.BL;
+                    return RedirectToAction("Create", "Baza");
+            }
+            return View(c);
         }
     }
 }

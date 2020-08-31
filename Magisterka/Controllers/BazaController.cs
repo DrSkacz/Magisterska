@@ -45,7 +45,7 @@ namespace Magisterka.Controllers
         public IActionResult Create()
         {
             var model = new Baza();
-
+            var li = new List<Lista>();
             List<string> zmienne = new List<string>();
             zmienne.Add("Zmienna zerowa");
             zmienne.Add("RQg");
@@ -89,13 +89,34 @@ namespace Magisterka.Controllers
             zmienne.Add("SLw");
             zmienne.Add("SdLw");
             //////////////////////////////////////////////////
-            //,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0
+            zmienne.Add("BDz");
+            zmienne.Add("BDw");
+            zmienne.Add("Blambdar");
+            zmienne.Add("Bn");
+            zmienne.Add("Bgamma");
+            zmienne.Add("BQ");
+            zmienne.Add("BCOP");
+            zmienne.Add("BTgr");
+            zmienne.Add("BTgo");
+            zmienne.Add("BRr");
+            zmienne.Add("BRgr");
+            zmienne.Add("Btp");
+            zmienne.Add("Btg");
+            zmienne.Add("BL");
+
+            //////////////////////////////////////////////////
+            ///   var li = new List<Lista>();
+           // li.Add(new Lista { Opiszmiennej = "Moc grzewcza pompy ciepła", Zmienna = "RQg" });
+
             int x;
             string cos;
-            x = zmienne.Count();    
+            x = zmienne.Count();
             for (int n = 1; n < x; ++n)
             {
                 cos = zmienne[n];
+
+                li.Add(new Lista { Opiszmiennej = "Moc grzewcza ", Zmienna = zmienne[n] });
+
                 if (TempData[zmienne[n]] != null)
                 {
                     string a = TempData[cos].ToString();
@@ -105,24 +126,13 @@ namespace Magisterka.Controllers
 
             }
 
-
-
-         /*   if (TempData["RQg"] != null)
-            {
-                model.RQg = TempData["RQg"].ToString();
-                TempData.Remove("RQg");
-            } */
-     
             return View(model);
         }
         // POST: Baza/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        // ("Id,RQg,RFi,Rro,RQ0,RXo,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp")
-        //TYLKO DATA,Nazwa,Opis wymagane powinny byc
+ 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0")] Baza baza)
+        public async Task<IActionResult> Create([Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0,BDz,BDw,Blambdar,Bn,Bgamma,BQ,BCOP,BTgr,BTgo,BRr,BRgr,Btp,Btg,BL")] Baza baza)
         {
  
             if (ModelState.IsValid)
@@ -130,8 +140,7 @@ namespace Magisterka.Controllers
                     _context.Add(baza);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
-                }
-            
+                }      
             return View(baza);
         }
 
@@ -141,6 +150,7 @@ namespace Magisterka.Controllers
         // GET: Baza/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+          
             if (id == null)
             {
                 return NotFound();
@@ -159,7 +169,7 @@ namespace Magisterka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0")] Baza baza)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,DATA,Nazwa,Opis,RQg,RFi,RQ0,RDz,Rtinf,Rt,RL,KQc,KCOP,KQ0,KH,KZ,KB,KTgr,DT,KTgm,Ktp,Kalfag,Kalfap,KAgr,Agr,KAr,Kdw,Kdz,KK,KC,KqL,Kqh,Kep,KLp,SQv,SLo,SLw,SdLw,SQc,SCOP,STsp,SQ0,BDz,BDw,Blambdar,Bn,Bgamma,BQ,BCOP,BTgr,BTgo,BRr,BRgr,Btp,Btg,BL")] Baza baza)
         {
             if (id != baza.Id)
             {

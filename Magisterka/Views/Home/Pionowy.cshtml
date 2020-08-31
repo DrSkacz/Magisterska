@@ -5,15 +5,14 @@
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<h3>@ViewData["Message"]</h3>
+<h3>Obliczenia długości sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW</h3>
 @using (Html.BeginForm("Pionowy", "Home", FormMethod.Post))
 {
     <div class="row">
         <div id="ob4" class="@Model.BOX1">
-            <h2>Średni ważony wspólczynnik przewodzenia gruntu</h2>
+            <h2>&nbsp Średni ważony wspólczynnik przewodzenia gruntu</h2>
             <br />
             <div class="col-md-4">
-
                 1. Grubość warstwy geologicznej [m]
                 <br>
                 <input type="text" class="form-control" id="SUia" name="SUia" value="@Model.SUia" />
@@ -98,6 +97,7 @@
 
                 <br /><br />
             </div>
+            &nbsp
             <button id="btn5" type="submit" value="btn5" name="Oblicz">Oblicz</button>
             <br /><br />
             <table class="table">
@@ -124,16 +124,17 @@
             </table>
         </div>
     </div>
+    <br />
     <div class="row">
         <div class="col-md-4">
             <div id="ob5" class="@Model.BOX2">
-                <h2>Moc chłodnicza pompy ciepła [Q0]</h2>
+                <h4><b>&nbsp Moc chłodnicza pompy ciepła [Q0]</b></h4>
                 <br>
                 @*
-                Jednostkowa wydajnosć gruntu [qv]
-                <br>
-                <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
-                <br>
+        Jednostkowa wydajnosć gruntu [qv]
+        <br>
+        <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
+        <br>
                 *@
                 Moc cieplna pompy ciepła[Qc]
                 <br>
@@ -141,7 +142,7 @@
                 Współczynnik sprawności pompy ciepła [COP]
                 <br>
                 <input type="text" class="form-control" id="SCOP" name="SCOP" value="@Model.SCOP" /> <br />
-
+                &nbsp
                 <button id="btn6" type="submit" value="btn6" name="Oblicz">Oblicz Q0</button>
                 <input id="SQ0a" name="SQ0a" value="@Model.SQ0" /> <br />
             </div>
@@ -149,7 +150,7 @@
 
         <div class="col-md-4">
             <div id="ob5" class="@Model.BOX3">
-                <h2>Wymagana długość sondy [Lo]</h2>
+                <h4><b>&nbsp Wymagana długość sondy [Lo]</b></h4>
                 <br>
                 Moc chłodnicza pompy ciepła [Q0]
                 <br>
@@ -157,6 +158,7 @@
                 Jednostkowa wydajnosć gruntu [qv]
                 <br>
                 <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
+                &nbsp
                 <button id="btn7" type="submit" value="btn7" name="Oblicz">Oblicz Lo</button>
                 <input id="SLo" name="SLo" value="@Model.SLo" /> <br />
             </div>
@@ -164,7 +166,7 @@
 
         <div class="col-md-4">
             <div id="ob5" class="@Model.BOX4">
-                <h2>Długość wymiennika pionowego [Lw]</h2>
+                <h4><b>&nbsp Długość wymiennika pionowego [Lw]</b></h4>
                 <br>
                 Czas pracy w ciągu całego roku (podany w H) [Tsp]
                 <br>
@@ -174,13 +176,40 @@
                 Dodatkowa procentowa długość sondy [Δlw]
                 <input type="text" class="form-control" id="SdLw" name="SdLw" value="@Model.SdLw" />
                 Długość wymiennika pionowego [Lw]
-                <input type="text" class="form-control" id="SLw" name="SLw" value="@Model.SLw" /> 
+                <input type="text" class="form-control" id="SLw" name="SLw" value="@Model.SLw" />
+                <br />
             </div>
         </div>
 
     </div>
-<hr />
+<hr>
 <div class="row">
-    <button id="zapisz3" type="submit" value="zapisz3" name="Oblicz">Zapisz</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Ilosc rur
+                </th>
+                <th>
+                    O długosci [m]
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input id="SLambdasr" name="SLambdasr" value="@Model.ilosc" />
+                </td>
+                <td>
+                    <input id="SUi" name="SUi" value="@Model.dlugosc" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <center>
+        <button id="zapisz3" type="submit" value="zapisz3" name="Oblicz">Zapisz</button>
+    </center>
 </div>
 }

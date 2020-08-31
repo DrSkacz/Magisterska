@@ -30,6 +30,9 @@ namespace Magisterka.Models
         public double SLw { get; set; }
         public double SdLw { get; set; }
 
+        public int ilosc { get; set; }
+        public double dlugosc { get; set; }
+
         public double SLambdai { get; set; } //do selectora <=
         public double SUi { get; set; } // to bedzie wyswietlane
         public double SUia { get; set; }
@@ -40,17 +43,11 @@ namespace Magisterka.Models
         public double SUif { get; set; }
 
         public string Selector4 { get; set; }
-
         public string Selector4a { get; set; }
-
         public string Selector4b { get; set; }
-
         public string Selector4c { get; set; }
-
         public string Selector4d { get; set; }
-
         public string Selector4e { get; set; }
-
         public string Selector4f { get; set; }
 
         public List<SelectListItem> LISTA { get; set; } = new List<SelectListItem>

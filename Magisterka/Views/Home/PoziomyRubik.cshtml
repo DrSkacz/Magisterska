@@ -1,6 +1,5 @@
 ﻿@model Magisterka.Models.Obl
 @*TYLKO 1 MODEL NA DOKUMENT ;/*@
-
 @{
     ViewData["Title"] = "PoziomyRubik";
 }
@@ -10,15 +9,13 @@
 @using (Html.BeginForm("PoziomyRubik", "Home", FormMethod.Post))
 {
 
-    <h3>@ViewData["Message"]</h3>
+<h3>Obliczenia długości poziomego wymiennika ciepła wg. Rubika</h3>
     <div>
 
         <div class="row">
-
-
             <div class="col-md-4">
                 <div id="ob8" class="@Model.BOX1">
-                    <h2>Moc cieplna [Q0]</h2>
+                    <h3>&nbsp Moc cieplna [Q0]</h3>
                     <br>
                     Moc grzewcza pompy ciepła w kW [Qg]
                     <input type="text" class="form-control" id="RQg" name="RQg" value="@Model.RQg" />
@@ -27,18 +24,15 @@
                     <br>
                     <input type="Text" class="form-control" id="RFi" name="RFi" value="@Model.RFi" />
                     <br><br />
+                    &nbsp
                     <button id="btn8" type="submit" value="btn8" name="Oblicz">Oblicz</button>
                     <input type="Text" id="RQ0a" name="RQ0a" value="@Model.RQ0" />
                 </div>
-
             </div>
 
-
-
             <div class="col-md-4">
-
                 <div id="ob9" class="@Model.BOX2">
-                    <h2>Długość rur[L]</h2>
+                    <h3>&nbsp Długość rur[L]</h3>
 
                     Moc cieplna pobierana z gruntu [Q0]
                     <br>
@@ -47,7 +41,6 @@
                     Głębokośc ułożenia rury:
                     <br>
                     <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
-
                     <br /><br />
                     Średnica zewnętrzna rury [DZ]
                     <br>
@@ -65,7 +58,7 @@
                     <br>
                     <select asp-for="Selector2" asp-items="Model.Gleba"></select>
                     <br><br />
-
+                    &nbsp
                     <button id="btn9" type="submit" value="btn9" name="Oblicz">Oblicz L</button>
                     <input type="Text" id="RL" name="RL" value="@Model.RL" />
                 </div>
@@ -75,40 +68,10 @@
         <hr />
         <div class="row">
             <div class="form-group">
-                <button id="zapisz1" type="submit" value="zapisz1" name="Oblicz">Zapisz</button>
+                <center>
+                    <button id="zapisz1" type="submit" value="zapisz1" name="Oblicz">Zapisz</button>
+                </center>
             </div>
         </div>
-
-
-            @*
-            <div class="row">
-
-
-                <input id="btn12" type="button" value="Zapisz" onclick="save2()" />
-                <script>
-                    function save2() {
-
-                    }
-                </script>
-
-
-                <input id="btn13" type="button" value="Czyść" onclick="clr2()" />
-                <script>
-                    function clr2() {
-                        document.getElementById("ob8").className = "style1";
-                        document.getElementById("ob9").className = "style1";
-                    }
-                </script>
-
-
-                <input id="btn14" type="button" value="Wypełnij" onclick="full2()" />
-                <script>
-                    function full2() {
-
-                    }
-                </script>
-
-            </div>
-            *@
-        </div>
-        }
+</div>
+}

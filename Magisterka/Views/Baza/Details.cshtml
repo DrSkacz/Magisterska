@@ -1,6 +1,9 @@
 ﻿@model Magisterka.Models.Baza
 
 @{
+    ViewData["Title"] = "Szczegóły";
+}
+@{
     Layout = "_Layout";
 }
 
@@ -18,12 +21,12 @@
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
         <hr />
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h2> Obliczenia wg Rubika</h2>
                 <dl class="dl-horizontal">
                     <dt>
                         @*
-                         @Html.DisplayNameFor(model => model.RQg)
+                            @Html.DisplayNameFor(model => model.RQg)
                         *@
                         <span title="Moc grzewcza pompy ciepła">[Qg] Moc grzewcza pompy ciepła</span>
                     </dt>
@@ -32,12 +35,8 @@
                     </dd>
                     <dt>
                         <span title="Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
-                        @*  
-                            @Html.DisplayNameFor(model => model.RFi) 
-                        *@
                     </dt>
                     <dd>
-
                         @Html.DisplayFor(model => model.RFi)
                     </dd>
                     <dt>
@@ -48,14 +47,14 @@
                         @Html.DisplayFor(model => model.RQ0)
                     </dd>
                     @*
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RXo)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RXo)
-                    </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.RXo)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RXo)
+                        </dd>
                     *@
-                    <dt>         
+                    <dt>
                         <span title="Średnica zewnętrzna rury">[DZ] Średnica zewnętrzna rury</span>
                     </dt>
                     <dd>
@@ -81,7 +80,7 @@
                     </dd>
                 </dl>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <h2> Obliczenia wg Kopcia</h2>
                 <dl class="dl-horizontal">
                     <dt>
@@ -224,7 +223,10 @@
                     </dd>
                 </dl>
             </div>
-            <div class="col-md-4">
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-5">
                 <h2> Obliczenia Długosci sondy pionowej</h2>
                 <dl class="dl-horizontal">
                     <dt>
@@ -276,9 +278,87 @@
                         @Html.DisplayFor(model => model.SLw)
                     </dd>
                 </dl>
+            </div>
+            <div class="col-md-5">
+                <h2> Algorytm Bose-Parkera</h2>
+                <dl class="dl-horizontal">
+                    <dt>
+                        <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BDz)
+                    </dd>
+                    <dt>
+                        <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BDw)
+                    </dd>
+                    <dt>
+                        <span title="Liczba rur w obwodzie">[n] Liczba rur w obwodzie </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Bn)
+                    </dd>
+                    <dt>
+                        <span title="Współczynnik prewodzenia materiału rury">[λr] Współczynnik prewodzenia materiału rury </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Blambdar)
+                    </dd>
+                    <dt>
+                        <span title="Zredukowany opór jednostkowy gruntu">[Rr] Zredukowany opór jednostkowy gruntu </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BRr)
+                    </dd>
+                    <dt>
+                        <span title="Czas pracy pompy cieplnej ">[tp] Czas pracy pompy cieplnej</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Btp)
+                    </dd>
+                    <dt>
+                        <span title="Czas działania instalacji">[tg] Czas działania instalacji  </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Btg)
+                    </dd>
+                    <dt>
+                        <span title="Moc grzejna pompy ciepła">[Q] Moc grzejna pompy ciepła </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BQ)
+                    </dd>
+                    <dt>
+                        <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BCOP)
+                    </dd>
+                    <dt>
+                        <span title="Temperatura gruntu">[Tgr] Temperatura gruntu </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BTgr)
+                    </dd>
+                    <dt>
+                        <span title="Temperatura płynu opuszczajacego parowacz">[Tgo] Temperatura płynu opuszczajacego parowacz </span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BTgo)
+                    </dd>
+                    <dt>
+                        <span title="Łączna długość wymiennika ciepła">[L] Łączna długość wymiennika ciepła</span>
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.BL)
+                    </dd>
+                </dl>
 
             </div>
         </div>
+        <hr />
         <div>
             <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
             <a asp-action="Index">Powrót do listy</a>
