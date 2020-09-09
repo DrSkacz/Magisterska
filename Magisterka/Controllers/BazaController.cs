@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Magisterka.Models;
+using System.Reflection;
 
 namespace Magisterka.Controllers
 {
@@ -20,12 +21,16 @@ namespace Magisterka.Controllers
 
         public async Task<IActionResult> Index()
         {
+            Baza model = new Baza();
+            List<ZmiennaItem> zmienne = model.Zmienne;
             return View(await _context.Baza.ToListAsync());
         }
 
         // GET: Baza/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            Baza model = new Baza();
+            List<ZmiennaItem> zmienne = model.Zmienne;
             if (id == null)
             {
                 return NotFound();
@@ -44,80 +49,16 @@ namespace Magisterka.Controllers
         // GET: Baza/Create
         public IActionResult Create()
         {
-            var model = new Baza();
-            var li = new List<Lista>();
-            List<string> zmienne = new List<string>();
-            zmienne.Add("Zmienna zerowa");
-            zmienne.Add("RQg");
-            zmienne.Add("RQ0");
-            zmienne.Add("RQg");
-            zmienne.Add("RDz");
-            zmienne.Add("Rtinf");
-            zmienne.Add("Rt");
-            zmienne.Add("RL");
-//////////////////////////////////////////////////
-            zmienne.Add("KQc");
-            zmienne.Add("KCOP");
-            zmienne.Add("KQ0");
-            zmienne.Add("KH");
-            zmienne.Add("KZ");
-            zmienne.Add("KB");
-            zmienne.Add("KTgr");
-            zmienne.Add("DT");
-            zmienne.Add("KTgm");
-            zmienne.Add("KTp");
-            zmienne.Add("Kalfag");
-            zmienne.Add("Kalfap");
-            zmienne.Add("KAgr");
-            zmienne.Add("Agr");
-            zmienne.Add("KAr");
-            zmienne.Add("Kdw");
-            zmienne.Add("Kdz");
-            zmienne.Add("KK");
-            zmienne.Add("KC");
-            zmienne.Add("KqL");
-            zmienne.Add("Kqh");
-            zmienne.Add("Kep");
-            zmienne.Add("KLp");
-            //////////////////////////////////////////////////
-            zmienne.Add("SQv");
-            zmienne.Add("SLo");
-            zmienne.Add("SQc");
-            zmienne.Add("SCOP");
-            zmienne.Add("STsp"); 
-            zmienne.Add("SQ0");
-            zmienne.Add("SLw");
-            zmienne.Add("SdLw");
-            //////////////////////////////////////////////////
-            zmienne.Add("BDz");
-            zmienne.Add("BDw");
-            zmienne.Add("Blambdar");
-            zmienne.Add("Bn");
-            zmienne.Add("Bgamma");
-            zmienne.Add("BQ");
-            zmienne.Add("BCOP");
-            zmienne.Add("BTgr");
-            zmienne.Add("BTgo");
-            zmienne.Add("BRr");
-            zmienne.Add("BRgr");
-            zmienne.Add("Btp");
-            zmienne.Add("Btg");
-            zmienne.Add("BL");
-
-            //////////////////////////////////////////////////
-            ///   var li = new List<Lista>();
-           // li.Add(new Lista { Opiszmiennej = "Moc grzewcza pompy ciepła", Zmienna = "RQg" });
+            Baza model = new Baza();
+            List<ZmiennaItem> zmienne = model.Zmienne;
 
             int x;
             string cos;
             x = zmienne.Count();
             for (int n = 1; n < x; ++n)
             {
-                cos = zmienne[n];
-
-                li.Add(new Lista { Opiszmiennej = "Moc grzewcza ", Zmienna = zmienne[n] });
-
-                if (TempData[zmienne[n]] != null)
+                cos = zmienne[n].Zmienna;
+                if (TempData[zmienne[n].Zmienna] != null)
                 {
                     string a = TempData[cos].ToString();
                     model.GetType().GetProperty(cos).SetValue(model, a, null);
@@ -150,7 +91,8 @@ namespace Magisterka.Controllers
         // GET: Baza/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-          
+            Baza model = new Baza();
+            List<ZmiennaItem> zmienne = model.Zmienne;
             if (id == null)
             {
                 return NotFound();
@@ -202,6 +144,8 @@ namespace Magisterka.Controllers
         // GET: Baza/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            Baza model = new Baza();
+            List<ZmiennaItem> zmienne = model.Zmienne;
             if (id == null)
             {
                 return NotFound();

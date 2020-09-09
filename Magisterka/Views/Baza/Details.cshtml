@@ -16,213 +16,238 @@
     <title>Szczegóły</title>
 </head>
 <body>
-
     <div>
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
         <hr />
         <div class="row">
+
+            @*    TO JEST PENTLA CO MA ZASTĄPIĆ TO WSZYSTKO NA DOLE   *@
+            <dl class="dl-horizontal">
+                @foreach (ZmiennaItem item in Model.Zmienne)
+                {
+                    var x = Model.GetType().GetProperty(item.Zmienna); //Tu wyciaga "System.String [NAZWA ZMIENNEJ]" a powinno wartsc value ze zmiennej xD
+                     if (x != null)
+                    {
+                        <dt>
+                            @item.OpisZmiennej
+                        </dt>
+                        <dd>
+                            @* A TO WOGOLE NIE DZIAŁA JAK POWINNO...
+        @Html.DisplayFor(model => model.GetType().GetProperty(item.Zmienna))
+                            *@
+                        </dd>
+                    }
+                    else
+                    {
+
+                    }
+
+                }
+            </dl>
+
+
             <div class="col-md-5">
                 <h2> Obliczenia wg Rubika</h2>
                 <dl class="dl-horizontal">
-                    <dt>
-                        @*
-                            @Html.DisplayNameFor(model => model.RQg)
-                        *@
-                        <span title="Moc grzewcza pompy ciepła">[Qg] Moc grzewcza pompy ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RQg)
-                    </dd>
-                    <dt>
-                        <span title="Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RFi)
-                    </dd>
-                    <dt>
-                        <span title="Moc cieplna pobierana z gruntu">[Q0] Moc cieplna pobierana z gruntu</span>
-                        @Html.DisplayNameFor(model => model.RQ0)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RQ0)
-                    </dd>
                     @*
-                        <dt>
-                            @Html.DisplayNameFor(model => model.RXo)
+                @Html.DisplayNameFor(model => model.RQg)
+                        *@
+<dt>
+                            <span title="Moc grzewcza pompy ciepła">[Qg] Moc grzewcza pompy ciepła</span>
                         </dt>
                         <dd>
-                            @Html.DisplayFor(model => model.RXo)
+                            @Html.DisplayFor(model => model.RQg)
                         </dd>
-                    *@
+                        <dt>
+                            <span title="Znamionowy współczynnik wydajnosci">[φ] Znamionowy współczynnik wydajnosci</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RFi)
+                        </dd>
+                        <dt>
+                            <span title="Moc cieplna pobierana z gruntu">[Q0] Moc cieplna pobierana z gruntu</span>
+                            @Html.DisplayNameFor(model => model.RQ0)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RQ0)
+                        </dd>
+                        @*
                     <dt>
-                        <span title="Średnica zewnętrzna rury">[DZ] Średnica zewnętrzna rury</span>
+                        @Html.DisplayNameFor(model => model.RXo)
                     </dt>
                     <dd>
-                        @Html.DisplayFor(model => model.RDz)
+                        @Html.DisplayFor(model => model.RXo)
                     </dd>
-                    <dt>
-                        <span title="Temperatura gruntu na glebokosci">[t∞] Temperatura gruntu na glebokosci x</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Rtinf)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura nośnika ciepła odpływająca z wymiennika gruntowego">[t] Temperatura nośnika ciepła odpływająca z wymiennika gruntowego</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Rt)
-                    </dd>
-                    <dt>
-                        <span title="Długość rur">[L] Długość rury wymiennika ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RL)
-                    </dd>
-                </dl>
-            </div>
-            <div class="col-md-5">
-                <h2> Obliczenia wg Kopcia</h2>
-                <dl class="dl-horizontal">
-                    <dt>
-                        <span title="Zapotrzebowanie na moc cieplną pompy ciepła">[Qc] Zapotrzebowanie na moc cieplną pompy ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KQc)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik efektywności pompy">[COP] Współczynnik efektywności pompy </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KCOP)
-                    </dd>
-                    <dt>
-                        <span title="Moc cieplna">[Q0] Moc cieplna</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KQ0)
-                    </dd>
-                    <dt>
-                        <span title="Głębokość osadzenia wymiennika">[H] Głębokość osadzenia wymiennika</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KH)
-                    </dd>
-                    <dt>
-                        <span title="Głębokość stałej temperatury gruntu">[Z] Głębokość stałej temperatury gruntu</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KZ)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik B">Współczynnik B</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KB)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura gruntu - stała">[Tgr] Temperatura gruntu - stała</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KTgr)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura płynu">[Tgm] Temperatura płynu </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KTgm)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura powietrza przy gruncie">[Tp] Temperatura powietrza przy gruncie</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Ktp)
-                    </dd>
-                    <dt>
-                        <span title="Różnica temperatur">[ΔT] Różnica temperatur</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.DT)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik przejmowania ciepła od strony glikolu">[αg] Współczynnik przejmowania ciepła od strony glikolu</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kalfag)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik przejmowania ciepła od strony powietrza">[αp] Współczynnik przejmowania ciepła od strony powietrza</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kalfap)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik przejmowania ciepła gruntu">[λgr] Współczynnik przejmowania ciepła gruntu</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KAgr)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik przejmowania ciepła rury">[λr] Współczynnik przejmowania ciepła rury</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KAr)
-                    </dd>
-                    <dt>
-                        <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kdw)
-                    </dd>
-                    <dt>
-                        <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kdz)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik K">Współczynnik K</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KK)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik C">Współczynnik C</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KC)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik przewodzenia gruntu">[λgr] Współczynnik przewodzenia gruntu </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Agr)
-                    </dd>
-                    <dt>
-                        <span title="Jednostkowy strumień ciepła">[qL] Jednostkowy strumień ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KqL)
-                    </dd>
-                    <dt>
-                        <span title="Rozstawienie rur">[ep] Rozstawienie rur</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kep)
-                    </dd>
-                    <dt>
-                        <span title="Jednostkowa wydajność cieplna">[qh] Jednostkowa wydajność cieplna </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Kqh)
-                    </dd>
-                    <dt>
-                        <span title="Łączna długość wymiennika ciepła">[Lp] Łączna długość wymiennika ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.KLp)
-                    </dd>
-                </dl>
-            </div>
+                        *@
+                        <dt>
+                            <span title="Średnica zewnętrzna rury">[DZ] Średnica zewnętrzna rury</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RDz)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura gruntu na glebokosci">[t∞] Temperatura gruntu na glebokosci x</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Rtinf)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura nośnika ciepła odpływająca z wymiennika gruntowego">[t] Temperatura nośnika ciepła odpływająca z wymiennika gruntowego</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Rt)
+                        </dd>
+                        <dt>
+                            <span title="Długość rur">[L] Długość rury wymiennika ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RL)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-5">
+                    <h2> Obliczenia wg Kopcia</h2>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <span title="Zapotrzebowanie na moc cieplną pompy ciepła">[Qc] Zapotrzebowanie na moc cieplną pompy ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KQc)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik efektywności pompy">[COP] Współczynnik efektywności pompy </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KCOP)
+                        </dd>
+                        <dt>
+                            <span title="Moc cieplna">[Q0] Moc cieplna</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KQ0)
+                        </dd>
+                        <dt>
+                            <span title="Głębokość osadzenia wymiennika">[H] Głębokość osadzenia wymiennika</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KH)
+                        </dd>
+                        <dt>
+                            <span title="Głębokość stałej temperatury gruntu">[Z] Głębokość stałej temperatury gruntu</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KZ)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik B">Współczynnik B</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KB)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura gruntu - stała">[Tgr] Temperatura gruntu - stała</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KTgr)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura płynu">[Tgm] Temperatura płynu </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KTgm)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura powietrza przy gruncie">[Tp] Temperatura powietrza przy gruncie</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Ktp)
+                        </dd>
+                        <dt>
+                            <span title="Różnica temperatur">[ΔT] Różnica temperatur</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.DT)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik przejmowania ciepła od strony glikolu">[αg] Współczynnik przejmowania ciepła od strony glikolu</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kalfag)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik przejmowania ciepła od strony powietrza">[αp] Współczynnik przejmowania ciepła od strony powietrza</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kalfap)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik przejmowania ciepła gruntu">[λgr] Współczynnik przejmowania ciepła gruntu</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KAgr)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik przejmowania ciepła rury">[λr] Współczynnik przejmowania ciepła rury</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KAr)
+                        </dd>
+                        <dt>
+                            <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kdw)
+                        </dd>
+                        <dt>
+                            <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kdz)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik K">Współczynnik K</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KK)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik C">Współczynnik C</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KC)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik przewodzenia gruntu">[λgr] Współczynnik przewodzenia gruntu </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Agr)
+                        </dd>
+                        <dt>
+                            <span title="Jednostkowy strumień ciepła">[qL] Jednostkowy strumień ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KqL)
+                        </dd>
+                        <dt>
+                            <span title="Rozstawienie rur">[ep] Rozstawienie rur</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kep)
+                        </dd>
+                        <dt>
+                            <span title="Jednostkowa wydajność cieplna">[qh] Jednostkowa wydajność cieplna </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Kqh)
+                        </dd>
+                        <dt>
+                            <span title="Łączna długość wymiennika ciepła">[Lp] Łączna długość wymiennika ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.KLp)
+                        </dd>
+                    </dl>
+                </div>
         </div>
         <hr />
         <div class="row">

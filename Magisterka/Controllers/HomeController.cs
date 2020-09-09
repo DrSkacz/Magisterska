@@ -514,7 +514,7 @@ namespace Magisterka.Controllers
                     TempData["BDw"] = c.BDw;
                     TempData["Blambdar"] = c.Blambdar;
                     TempData["Bn"] = c.Bn;
-                    TempData["Bgamma"] = c.Bgamma;
+                //    TempData["Bgamma"] = c.Bgamma;
                     TempData["BQ"] = c.BQ;
                     TempData["BCOP"] = c.BCOP;
                     TempData["BTgr"] = c.BTgr;
