@@ -317,7 +317,7 @@ namespace Magisterka.Models
             new ZmiennaItem("KB","Współczynnik B"),
             new ZmiennaItem("KTgr","Temperatura gruntu - stała"),
             new ZmiennaItem("KTgm","Temperatura płynu w obiegu"),
-            new ZmiennaItem("KTp","Temperatura powietrza przy gruncie"),
+            new ZmiennaItem("Ktp","Temperatura powietrza przy gruncie"),
             new ZmiennaItem("DT","Różnica temperatur"), 
             new ZmiennaItem("Kalfag","Współczynnik przejmowania ciepła od strony glikolu"),
             new ZmiennaItem("Kalfap","Współczynnik przejmowania ciepła od strony powietrza"),

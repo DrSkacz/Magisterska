@@ -219,7 +219,7 @@ namespace Magisterka.Controllers
                     TempData["KTgr"] = c.KTgr;
                     TempData["DT"] = c.DT;
                     TempData["KTgm"] = c.KTgm;
-                    TempData["KTp"] = c.Ktp;
+                    TempData["Ktp"] = c.Ktp;
                     TempData["Kalfag"] = c.Kalfag;
                     TempData["Kalfap"] = c.Kalfap;
                     TempData["KAgr"] = c.KAgr;

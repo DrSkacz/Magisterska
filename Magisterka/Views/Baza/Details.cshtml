@@ -19,40 +19,41 @@
     <div>
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
         <hr />
-        <div class="row">
 
-            @*    TO JEST PENTLA CO MA ZASTĄPIĆ TO WSZYSTKO NA DOLE   *@
+    
+            @*    TO JEST PENTLA CO MOŻE ZASTĄPIĆ TO WSZYSTKO NA DOLE troche skladnia mi nie pasuje ZMIENIC PO SNIADANIU
             <dl class="dl-horizontal">
                 @foreach (ZmiennaItem item in Model.Zmienne)
                 {
-                    var x = Model.GetType().GetProperty(item.Zmienna); //Tu wyciaga "System.String [NAZWA ZMIENNEJ]" a powinno wartsc value ze zmiennej xD
-                     if (x != null)
+                    string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                    if (x != "")
                     {
+                        if (item.Zmienna == "RQg")
+                        {
+                            <h2> Obliczenia wg Rubika</h2>
+                        }
+                        if (item.Zmienna == "KQc")
+                        {
+                            <h2> Obliczenia wg Kopcia</h2>
+                        }
                         <dt>
                             @item.OpisZmiennej
                         </dt>
                         <dd>
-                            @* A TO WOGOLE NIE DZIAŁA JAK POWINNO...
-        @Html.DisplayFor(model => model.GetType().GetProperty(item.Zmienna))
-                            *@
+                            @Model.GetType().GetProperty(item.Zmienna).GetValue(Model)
                         </dd>
                     }
-                    else
-                    {
-
-                    }
-
                 }
-            </dl>
+            </dl>*@
 
-
-            <div class="col-md-5">
-                <h2> Obliczenia wg Rubika</h2>
-                <dl class="dl-horizontal">
-                    @*
-                @Html.DisplayNameFor(model => model.RQg)
+            <div class="row">
+                <div class="col-md-5">
+                    <h2> Obliczenia wg Rubika</h2>
+                    <dl class="dl-horizontal">
+                        @*
+                        @Html.DisplayNameFor(model => model.RQg)
                         *@
-<dt>
+                        <dt>
                             <span title="Moc grzewcza pompy ciepła">[Qg] Moc grzewcza pompy ciepła</span>
                         </dt>
                         <dd>
@@ -72,12 +73,12 @@
                             @Html.DisplayFor(model => model.RQ0)
                         </dd>
                         @*
-                    <dt>
-                        @Html.DisplayNameFor(model => model.RXo)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.RXo)
-                    </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.RXo)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RXo)
+                        </dd>
                         *@
                         <dt>
                             <span title="Średnica zewnętrzna rury">[DZ] Średnica zewnętrzna rury</span>
@@ -248,146 +249,146 @@
                         </dd>
                     </dl>
                 </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-md-5">
-                <h2> Obliczenia Długosci sondy pionowej</h2>
-                <dl class="dl-horizontal">
-                    <dt>
-                        <span title="Moc cieplna pompy ciepła">[Qc]Moc cieplna pompy ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SQc)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SCOP)
-                    </dd>
-                    <dt>
-                        <span title="Moc chłodnicza pompy ciepła">[Q0] Moc chłodnicza pompy ciepła </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SQ0)
-                    </dd>
-                    <dt>
-                        <span title="Jednostkowa wydajnosć gruntu">[qv] Jednostkowa wydajnosć gruntu</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SQv)
-                    </dd>
-                    <dt>
-                        <span title="Wymagana długość sondy">[Lo] Wymagana długość sondy </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SLo)
-                    </dd>
-                    <dt>
-                        <span title="Czas pracy w ciągu całego roku (podany w H)">[Tsp] Czas pracy w ciągu całego roku</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.STsp)
-                    </dd>
-                    <dt>
-                        <span title="Dodatkowa procentowa długość sondy">[Δlw]Dodatkowa procentowa długość sondy </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SdLw)
-                    </dd>
-                    <dt>
-                        <span title="Łączna długość wymiennika ciepła">[Lw] Łączna długość wymiennika ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.SLw)
-                    </dd>
-                </dl>
             </div>
-            <div class="col-md-5">
-                <h2> Algorytm Bose-Parkera</h2>
-                <dl class="dl-horizontal">
-                    <dt>
-                        <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BDz)
-                    </dd>
-                    <dt>
-                        <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BDw)
-                    </dd>
-                    <dt>
-                        <span title="Liczba rur w obwodzie">[n] Liczba rur w obwodzie </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Bn)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik prewodzenia materiału rury">[λr] Współczynnik prewodzenia materiału rury </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Blambdar)
-                    </dd>
-                    <dt>
-                        <span title="Zredukowany opór jednostkowy gruntu">[Rr] Zredukowany opór jednostkowy gruntu </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BRr)
-                    </dd>
-                    <dt>
-                        <span title="Czas pracy pompy cieplnej ">[tp] Czas pracy pompy cieplnej</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Btp)
-                    </dd>
-                    <dt>
-                        <span title="Czas działania instalacji">[tg] Czas działania instalacji  </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.Btg)
-                    </dd>
-                    <dt>
-                        <span title="Moc grzejna pompy ciepła">[Q] Moc grzejna pompy ciepła </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BQ)
-                    </dd>
-                    <dt>
-                        <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BCOP)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura gruntu">[Tgr] Temperatura gruntu </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BTgr)
-                    </dd>
-                    <dt>
-                        <span title="Temperatura płynu opuszczajacego parowacz">[Tgo] Temperatura płynu opuszczajacego parowacz </span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BTgo)
-                    </dd>
-                    <dt>
-                        <span title="Łączna długość wymiennika ciepła">[L] Łączna długość wymiennika ciepła</span>
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.BL)
-                    </dd>
-                </dl>
+            <hr />
+            <div class="row">
+                <div class="col-md-5">
+                    <h2> Obliczenia Długosci sondy pionowej</h2>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <span title="Moc cieplna pompy ciepła">[Qc]Moc cieplna pompy ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SQc)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SCOP)
+                        </dd>
+                        <dt>
+                            <span title="Moc chłodnicza pompy ciepła">[Q0] Moc chłodnicza pompy ciepła </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SQ0)
+                        </dd>
+                        <dt>
+                            <span title="Jednostkowa wydajnosć gruntu">[qv] Jednostkowa wydajnosć gruntu</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SQv)
+                        </dd>
+                        <dt>
+                            <span title="Wymagana długość sondy">[Lo] Wymagana długość sondy </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SLo)
+                        </dd>
+                        <dt>
+                            <span title="Czas pracy w ciągu całego roku (podany w H)">[Tsp] Czas pracy w ciągu całego roku</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.STsp)
+                        </dd>
+                        <dt>
+                            <span title="Dodatkowa procentowa długość sondy">[Δlw]Dodatkowa procentowa długość sondy </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SdLw)
+                        </dd>
+                        <dt>
+                            <span title="Łączna długość wymiennika ciepła">[Lw] Łączna długość wymiennika ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SLw)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-5">
+                    <h2> Algorytm Bose-Parkera</h2>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            <span title="Średnica zewnetrzna rury">[dz] Średnica zewnetrzna rury </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BDz)
+                        </dd>
+                        <dt>
+                            <span title="Średnica wewnętrzna rury">[dw] Średnica wewnętrzna rury </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BDw)
+                        </dd>
+                        <dt>
+                            <span title="Liczba rur w obwodzie">[n] Liczba rur w obwodzie </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Bn)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik prewodzenia materiału rury">[λr] Współczynnik prewodzenia materiału rury </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Blambdar)
+                        </dd>
+                        <dt>
+                            <span title="Zredukowany opór jednostkowy gruntu">[Rr] Zredukowany opór jednostkowy gruntu </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BRr)
+                        </dd>
+                        <dt>
+                            <span title="Czas pracy pompy cieplnej ">[tp] Czas pracy pompy cieplnej</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Btp)
+                        </dd>
+                        <dt>
+                            <span title="Czas działania instalacji">[tg] Czas działania instalacji  </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Btg)
+                        </dd>
+                        <dt>
+                            <span title="Moc grzejna pompy ciepła">[Q] Moc grzejna pompy ciepła </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BQ)
+                        </dd>
+                        <dt>
+                            <span title="Współczynnik sprawności pompy ciepła">[COP] Współczynnik sprawności pompy ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BCOP)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura gruntu">[Tgr] Temperatura gruntu </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BTgr)
+                        </dd>
+                        <dt>
+                            <span title="Temperatura płynu opuszczajacego parowacz">[Tgo] Temperatura płynu opuszczajacego parowacz </span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BTgo)
+                        </dd>
+                        <dt>
+                            <span title="Łączna długość wymiennika ciepła">[L] Łączna długość wymiennika ciepła</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.BL)
+                        </dd>
+                    </dl>
 
+                </div>
+            </div>
+            <hr />
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+                <a asp-action="Index">Powrót do listy</a>
             </div>
         </div>
-        <hr />
-        <div>
-            <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
-            <a asp-action="Index">Powrót do listy</a>
-        </div>
-    </div>
 </body>
 </html>
