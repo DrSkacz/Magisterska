@@ -386,8 +386,21 @@
             </div>
             <hr />
             <div>
-                <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
-                <a asp-action="Index">Powrót do listy</a>
+                <form asp-action="Wczytaj">
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+                    <a asp-action="Index">Powrót do listy</a> |
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Wczytaj" class="btn btn-default" />
+                </form>
+                @if (ViewBag.Message != null)
+                {
+                    <script type="text/javascript">
+                    window.onload = function () {
+                    alert("@ViewBag.Message");
+                     };
+                    </script>
+                }
+
             </div>
         </div>
 </body>

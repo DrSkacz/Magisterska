@@ -42,11 +42,19 @@ namespace Magisterka.Controllers
             {
                 return NotFound();
             }
-
             return View(baza);
         }
+        [HttpPost, ActionName("Wczytaj")]
+        public async Task<IActionResult> Details(int id)
+        {
+            
 
-        // GET: Baza/Create
+
+            return View();
+        }
+
+
+            // GET: Baza/Create
         public IActionResult Create()
         {
             Baza model = new Baza();
