@@ -5,66 +5,102 @@
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<h3>Algorytm Bose-Parkera</h3>
-@using (Html.BeginForm("BoseParker", "Home", FormMethod.Post))
-{
-<div class="row">
-    <div class="col-md-4">
-        <div id="ob4" class="@Model.BOX1">
-            <h4><b>&nbsp Zredukowany opór jednostkowy gruntu</b></h4>
-            Średnica zewnetrzna rury [dz]
-            <br>
-            <input type="text" class="form-control" id="Bdz" name="BDz" value="@Model.BDz" /> <br />
-            Średnica wewnętrzna rury [dw]
-            <br>
-            <input type="text" class="form-control" id="Bdw" name="BDw" value="@Model.BDw" /> <br />
-            Liczba rur w obwodzie [n]
-            <br>
-            <input type="text" class="form-control" id="Bn" name="Bn" value="@Model.Bn" /> <br />
-            Współczynnik prewodzenia materiału rury [λr]
-            <br>
-            <input type="text" class="form-control" id="Blambdar" name="Blambdar" value="@Model.Blambdar" /> <br />
-            <br />
-            &nbsp
-            <button id="btn7" type="submit" value="btn7" name="Oblicz">Oblicz Rr</button>
-            <input id="BRra" name="BRra" value="@Model.BRr" /> <br />
+<body>
+    <h3>Algorytm Bose-Parkera</h3>
+    @using (Html.BeginForm("BoseParker", "Home", FormMethod.Post))
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <div id="ob4" class="@Model.BOX1">
+                    <h4><b>&nbsp Zredukowany opór jednostkowy gruntu</b></h4>
+                    Średnica zewnetrzna rury [dz]
+                    <br>
+                    <input type="text" class="form-control" id="Bdz" name="BDz" value="@Model.BDz" /> <br />
+                    Średnica wewnętrzna rury [dw]
+                    <br>
+                    <input type="text" class="form-control" id="Bdw" name="BDw" value="@Model.BDw" /> <br />
+                    Liczba rur w obwodzie [n]
+                    <br>
+                    <input type="text" class="form-control" id="Bn" name="Bn" value="@Model.Bn" /> <br />
+                    Współczynnik prewodzenia materiału rury [λr]
+                    <br>
+                    <input type="text" class="form-control" id="Blambdar" name="Blambdar" value="@Model.Blambdar" /> <br />
+                    <br />
+                    &nbsp
+                    <button id="btn7" type="submit" value="btn7" name="Oblicz">Oblicz Rr</button>
+                    <input id="BRra" name="BRra" value="@Model.BRr" /> <br />
+                </div>
+                <br />
+            </div>
+            <div class="col-md-4">
+                <div id="ob4" class="@Model.BOX2">
+                    <h3>&nbsp Długość wymiennika ciepła</h3>
+                    Czas pracy pompy [tp]
+                    <br>
+                    <input type="text" class="form-control" id="Btp" name="Btp" value="@Model.Btp" /> <br />
+                    Czas działania instalacji [tg]
+                    <br>
+                    <input type="text" class="form-control" id="Btg" name="Btg" value="@Model.Btg" /> <br />
+                    Moc grzejna pompy ciepła [Q]
+                    <br>
+                    <input type="text" class="form-control" id="BQ" name="BQ" value="@Model.BQ" /> <br />
+                    Wspólczynnik wydajnosci pompy ciepła [COP]
+                    <br>
+                    <input type="text" class="form-control" id="BCOP" name="BCOP" value="@Model.BCOP" /> <br />
+                    Zredukowany opór jednostkowy gruntu [Rr]
+                    <br>
+                    <input type="text" class="form-control" id="BRr" name="BRr" value="@Model.BRr" /> <br />
+                    Temperatura gruntu [Tgr]
+                    <br>
+                    <input type="text" class="form-control" id="BTgr" name="BTgr" value="@Model.BTgr" /> <br />
+                    Temperatura płynu opuszczajacego parowacz [Tgo]
+                    <br>
+                    <input type="text" class="form-control" id="BTgo" name="BTgo" value="@Model.BTgo" /> <br />
+                    &nbsp
+                    <button id="btn8" type="submit" value="btn8" name="Oblicz">Oblicz L</button>
+                    <input id="BL" name="BL" value="@Model.BL" /> <br />
+                </div>
+            </div>
         </div>
         <br />
-    </div>
-    <div class="col-md-4">
-        <div id="ob4" class="@Model.BOX2">
-            <h3>&nbsp Długość wymiennika ciepła</h3>
-            Czas pracy pompy [tp]
-            <br>
-            <input type="text" class="form-control" id="Btp" name="Btp" value="@Model.Btp" /> <br />
-            Czas działania instalacji [tg]
-            <br>
-            <input type="text" class="form-control" id="Btg" name="Btg" value="@Model.Btg" /> <br />
-            Moc grzejna pompy ciepła [Q]
-            <br>
-            <input type="text" class="form-control" id="BQ" name="BQ" value="@Model.BQ" /> <br />
-            Wspólczynnik wydajnosci pompy ciepła [COP]
-            <br>
-            <input type="text" class="form-control" id="BCOP" name="BCOP" value="@Model.BCOP" /> <br />
-            Zredukowany opór jednostkowy gruntu [Rr]
-            <br>
-            <input type="text" class="form-control" id="BRr" name="BRr" value="@Model.BRr" /> <br />
-            Temperatura gruntu [Tgr]
-            <br>
-            <input type="text" class="form-control" id="BTgr" name="BTgr" value="@Model.BTgr" /> <br />
-            Temperatura płynu opuszczajacego parowacz [Tgo]
-            <br>
-            <input type="text" class="form-control" id="BTgo" name="BTgo" value="@Model.BTgo" /> <br />
-            &nbsp
-            <button id="btn8" type="submit" value="btn8" name="Oblicz">Oblicz L</button>
-            <input id="BL" name="BL" value="@Model.BL" /> <br />
+        <div class="row">
+            <center>
+                <button id="zapisz4" type="submit" value="zapisz4" name="Oblicz">Zapisz</button>
+            </center>
         </div>
-    </div>
-</div>
-<br />
-    <div class="row">
-        <center>
-            <button id="zapisz4" type="submit" value="zapisz4" name="Oblicz">Zapisz</button>
-        </center>
-    </div>
     }
+
+    @if (ViewBag.msg != null)
+    {
+        <script type="text/javascript">
+
+            window.onload = function () {
+                $('#myModal').modal('show');
+            };
+        </script>
+    }
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Wystąpił Błąd!</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.Raw(ViewBag.msg)
+
+                </div>
+                <div class="modal-footer">
+                    <script>ViewBag.msg = null;</script>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+</body>

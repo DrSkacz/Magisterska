@@ -14,6 +14,12 @@ namespace Magisterka.Controllers
     {
         private readonly MagisterkaContext _context;
 
+        public class ButtonModel
+        {
+            public string content { get; set; }
+            public bool isPrimary { get; set; }
+
+        }
         public BazaController(MagisterkaContext context)
         {
             _context = context;
@@ -44,17 +50,32 @@ namespace Magisterka.Controllers
             }
             return View(baza);
         }
-        [HttpPost, ActionName("Wczytaj")]
-        public async Task<IActionResult> Details(int id)
+
+        [HttpPost]
+        public ActionResult Details(string Wczytaj)
         {
-            
+            Baza c = new Baza();
+            switch (Wczytaj)
+            {
+                case "Metoda1":
+                return RedirectToAction("Home", "PoziomyRubik");
 
+                case "Metoda2":
+                return RedirectToAction("Home", "PoziomyKopec");
 
-            return View();
+                case "Metoda3":
+                return RedirectToAction("Home", "Pionowy");
+
+                case "Metoda4":
+                return RedirectToAction("Home", "BoseParker");
+            }
+            return View(c);
         }
 
 
-            // GET: Baza/Create
+
+
+        // GET: Baza/Create
         public IActionResult Create()
         {
             Baza model = new Baza();

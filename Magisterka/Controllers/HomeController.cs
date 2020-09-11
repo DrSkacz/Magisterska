@@ -74,13 +74,16 @@ namespace Magisterka.Controllers
                     }
                     else
                     {
+                        ViewBag.msg = "BŁĄD!";
                         c.BOX1 = "style3";
                         c.BOX2 = "style1";
                         c.BOX3 = "style1";
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
+
+
                     }
                     return View(c);
 
@@ -104,7 +107,7 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -127,7 +130,7 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -153,7 +156,7 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style3";
                         c.BOX5 = "style1";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -179,7 +182,7 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style3";
                         c.BOX6 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -206,7 +209,7 @@ namespace Magisterka.Controllers
                         c.BOX4 = "style1";
                         c.BOX5 = "style1";
                         c.BOX6 = "style3";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
                 case "zapisz2":
@@ -276,7 +279,7 @@ namespace Magisterka.Controllers
                     {
                         c.BOX1 = "style3";
                         c.BOX2 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -295,7 +298,7 @@ namespace Magisterka.Controllers
                     {
                         c.BOX1 = "style1";
                         c.BOX2 = "style3";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
                 case "zapisz1":
@@ -355,7 +358,7 @@ namespace Magisterka.Controllers
                         c.BOX2 = "style1";
                         c.BOX3 = "style1";
                         c.BOX4 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -374,7 +377,7 @@ namespace Magisterka.Controllers
                         c.BOX1 = "style1";
                         c.BOX3 = "style1";
                         c.BOX4 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -393,7 +396,7 @@ namespace Magisterka.Controllers
                         c.BOX1 = "style1";
                         c.BOX3 = "style3";
                         c.BOX4 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 
@@ -422,7 +425,7 @@ namespace Magisterka.Controllers
                         c.BOX1 = "style1";
                         c.BOX3 = "style1";
                         c.BOX4 = "style3";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
                 case "zapisz3":
@@ -463,14 +466,15 @@ namespace Magisterka.Controllers
 
 
         public IActionResult BoseParker()
-        {
-            ViewData["Message"] = "Algorytm Bose-Parkera";
+        { 
             var model = new Bose();
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             return View(model);
-
+       
         }
+
+
         [HttpPost]
         public ActionResult BoseParker(Bose c, string Oblicz)
         {
@@ -488,7 +492,7 @@ namespace Magisterka.Controllers
                     {
                         c.BOX1 = "style3";
                         c.BOX2 = "style1";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                        
                     }
                     return View(c);
@@ -505,7 +509,7 @@ namespace Magisterka.Controllers
                     {
                         c.BOX1 = "style1";
                         c.BOX2 = "style3";
-                        ViewData["Message"] = "Błąd wprowadzania danych!";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
 

@@ -131,10 +131,10 @@
                 <h4><b>&nbsp Moc chłodnicza pompy ciepła [Q0]</b></h4>
                 <br>
                 @*
-            Jednostkowa wydajnosć gruntu [qv]
-            <br>
-            <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
-            <br>
+                    Jednostkowa wydajnosć gruntu [qv]
+                    <br>
+                    <input type="text" class="form-control" id="SQv" name="SQv" value="@Model.SQv" /> <br />
+                    <br>
                 *@
                 Moc cieplna pompy ciepła[Qc]
                 <br>
@@ -184,34 +184,66 @@
         </div>
 
     </div>
-<hr>
-<div class="row">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    Ilosc rur
-                </th>
-                <th>
-                    O długosci [m]
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <input id="SLambdasr" name="SLambdasr" value="@Model.ilosc" />
-                </td>
-                <td>
-                    <input id="SUi" name="SUi" value="@Model.dlugosc" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="row">
-    <center>
-        <button id="zapisz3" type="submit" value="zapisz3" name="Oblicz">Zapisz</button>
-    </center>
-</div>
+    <hr>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Ilosc rur
+                    </th>
+                    <th>
+                        O długosci [m]
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input id="SLambdasr" name="SLambdasr" value="@Model.ilosc" />
+                    </td>
+                    <td>
+                        <input id="SUi" name="SUi" value="@Model.dlugosc" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <center>
+            <button id="zapisz3" type="submit" value="zapisz3" name="Oblicz">Zapisz</button>
+        </center>
+    </div>
 }
+@if (ViewBag.msg != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                $('#myModal').modal('show');
+            };
+    </script>
+}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Wystąpił Błąd!</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Raw(ViewBag.msg)
+
+            </div>
+            <div class="modal-footer">
+                <script>ViewBag.msg = null;</script>
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

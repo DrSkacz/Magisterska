@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                
+
                 <div id="ob6" class="@Model.BOX6">
 
                     <h4><b>&nbsp Łączna długość wymiennika ciepła [Lp]</b></h4>
@@ -133,4 +133,36 @@
     <center>
         <button id="zapisz2" type="submit" value="zapisz2" name="Oblicz">Zapisz</button>
     </center>
+</div>
+@if (ViewBag.msg != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                $('#myModal').modal('show');
+            };
+    </script>
+}
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Wystąpił Błąd!</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Raw(ViewBag.msg)
+
+            </div>
+            <div class="modal-footer">
+                <script>ViewBag.msg = null;</script>
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+
+    </div>
+
 </div>
