@@ -14,7 +14,7 @@ namespace Magisterka.Models
         //[StringLength(5)]
         //[Required]
         public double RQg { get; set; }
-
+        
         public double RFi { get; set; }
 
         public double Rro { get; set; }

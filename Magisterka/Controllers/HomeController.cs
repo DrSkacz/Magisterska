@@ -42,6 +42,26 @@ namespace Magisterka.Controllers
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Kopcia";
             var model = new PKO();
+            Baza c = new Baza();
+            List<ZmiennaItem> zmienne = c.Zmienne;
+            int x;
+            string cos;
+            x = zmienne.Count();
+            for (int n = 0; n < x; ++n)
+            {
+                cos = zmienne[n].Zmienna;
+                if (TempData[cos] != null)
+                {
+                    string a = TempData[cos].ToString();
+                    if (model.GetType().GetProperty(cos) != null)
+                    {
+                        model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
+                    }
+
+                    TempData.Remove(cos);
+                }
+
+            }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             model.BOX3 = "style1";
@@ -251,7 +271,27 @@ namespace Magisterka.Controllers
         public IActionResult PoziomyRubik()
         {
             ViewData["Message"] = "Obliczenia długosci poziomego wymiennika ciepła wg. Rubika";
-            var model = new Obl();
+            Obl model = new Obl();
+            Baza c = new Baza();
+            List<ZmiennaItem> zmienne = c.Zmienne;
+            int x;
+            string cos;
+            x = zmienne.Count();
+            for (int n = 0; n < x; ++n)
+            {
+                cos = zmienne[n].Zmienna;
+                if (TempData[cos] != null)
+                {
+                    string a = TempData[cos].ToString();
+                    if (model.GetType().GetProperty(cos) != null)// TEN WARUNEK ZMIENIĆ TYLKO CZY wystepuje model.[nazwa] 
+                    { 
+                    model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
+                    }
+
+                    TempData.Remove(cos);
+                }
+
+            }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             model.Selector1 = "?";
@@ -327,6 +367,26 @@ namespace Magisterka.Controllers
         {
             ViewData["Message"] = "Obliczenia długosci sond (pionowych) gruntowych dla pomp ciepła o mocy <=30kW";
             var model = new PP();
+            Baza c = new Baza();
+            List<ZmiennaItem> zmienne = c.Zmienne;
+            int x;
+            string cos;
+            x = zmienne.Count();
+            for (int n = 0; n < x; ++n)
+            {
+                cos = zmienne[n].Zmienna;
+                if (TempData[cos] != null)
+                {
+                    string a = TempData[cos].ToString();
+                    if (model.GetType().GetProperty(cos) != null)
+                    {
+                        model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
+                    }
+
+                    TempData.Remove(cos);
+                }
+
+            }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             model.BOX3 = "style1";
@@ -468,6 +528,26 @@ namespace Magisterka.Controllers
         public IActionResult BoseParker()
         { 
             var model = new Bose();
+            Baza c = new Baza();
+            List<ZmiennaItem> zmienne = c.Zmienne;
+            int x;
+            string cos;
+            x = zmienne.Count();
+            for (int n = 0; n < x; ++n)
+            {
+                cos = zmienne[n].Zmienna;
+                if (TempData[cos] != null)
+                {
+                    string a = TempData[cos].ToString();
+                    if (model.GetType().GetProperty(cos) != null)
+                    {
+                        model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
+                    }
+
+                    TempData.Remove(cos);
+                }
+
+            }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             return View(model);

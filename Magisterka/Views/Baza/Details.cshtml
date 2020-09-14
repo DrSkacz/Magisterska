@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <title>Szczegóły</title>
 </head>
-<body>
     <div>
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
         <hr />
@@ -400,6 +399,17 @@
                         </div>
                         <div class="modal-body">
                             <center>  Wybierz metode do której chcesz przenieść dane. </center>
+
+                            @foreach (ZmiennaItem item in Model.Zmienne)
+                            {
+                                string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                                if (x != "")
+                                {
+                                    <input type="hidden" id="item.Zmienna" name="item.Zmienna" value=@Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString() />
+                                }
+                            }
+
+                            <br />
                         </div>
                         <div class="modal-footer">
                             <table class="table">
@@ -410,44 +420,105 @@
                                         </th>
                                         <th colspan="2">
                                             <center> Sonda pionowa </center>
-</th>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
                                             <center>
-                                                <button type="submit" class="btn btn-primary" id="Metoda1" value="Metoda1" name="Wczytaj">Skrócona</button>
+                                                <button type="button" class="btn btn-primary" id="Metoda1" onclick="Load1()"> Skrócona</button>
                                             </center>
                                         </td>
                                         <td>
                                             <center>
-                                                <button type="submit" class="btn btn-primary" id="Metoda2" value="Metoda2" name="Wczytaj">Szczegółowa</button>
+                                                <button type="submit" class="btn btn-primary" id="Metoda2" onclick="Load2()">Szczegółowa</button>
                                             </center>
                                         </td>
                                         <td>
                                             <center>
-                                                <button type="submit" class="btn btn-primary" id="Metoda3" value="Metoda3" name="Wczytaj">Podstawowa</button>
+                                                <button type="submit" class="btn btn-primary" id="Metoda3" onclick="Load3()">Podstawowa</button>
                                             </center>
                                         </td>
                                         <td>
                                             <center>
-                                                <button type="submit" class="btn btn-primary" id="Metoda4" value="Metoda4" name="Wczytaj">Bose-Parker</button>
+                                                <button type="submit" class="btn btn-primary" id="Metoda4" onclick="Load4()">Bose-Parker</button>
                                             </center>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
 
 
+            <script>
+                function Load1() {
+
+                     @foreach (ZmiennaItem item in Model.Zmienne)
+                     {
+                         string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         string cos = item.Zmienna;
+                         if (x != "")
+                         {
+                             TempData[cos] = @Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         }
+                     }
+                    window.location.href = '/Home/PoziomyRubik/'
+                }
+
+                function Load2() {
+
+                     @foreach (ZmiennaItem item in Model.Zmienne)
+                     {
+                         string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         string cos = item.Zmienna;
+                         if (x != "")
+                         {
+                             TempData[cos] = @Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         }
+                     }
+                    window.location.href = '/Home/PoziomyKopec/'
+                }
+
+                function Load3() {
+
+                     @foreach (ZmiennaItem item in Model.Zmienne)
+                     {
+                         string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         string cos = item.Zmienna;
+                         if (x != "")
+                         {
+                             TempData[cos] = @Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         }
+                     }
+                    window.location.href = '/Home/Pionowy/'
+                }
+
+                function Load4() {
+
+                     @foreach (ZmiennaItem item in Model.Zmienne)
+                     {
+                         string x = Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         string cos = item.Zmienna;
+                         if (x != "")
+                         {
+                             TempData[cos] = @Model.GetType().GetProperty(item.Zmienna).GetValue(Model).ToString();
+                         }
+                     }
+                    window.location.href = '/Home/BoseParker/'
+                }
+            </script>
 
         </div>
     </div>
 
    
-</body>
+
 </html>

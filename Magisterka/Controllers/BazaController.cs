@@ -51,27 +51,7 @@ namespace Magisterka.Controllers
             return View(baza);
         }
 
-        [HttpPost]
-        public ActionResult Details(string Wczytaj)
-        {
-            Baza c = new Baza();
-            switch (Wczytaj)
-            {
-                case "Metoda1":
-                return RedirectToAction("Home", "PoziomyRubik");
-
-                case "Metoda2":
-                return RedirectToAction("Home", "PoziomyKopec");
-
-                case "Metoda3":
-                return RedirectToAction("Home", "Pionowy");
-
-                case "Metoda4":
-                return RedirectToAction("Home", "BoseParker");
-            }
-            return View(c);
-        }
-
+       
 
 
 
@@ -84,7 +64,7 @@ namespace Magisterka.Controllers
             int x;
             string cos;
             x = zmienne.Count();
-            for (int n = 1; n < x; ++n)
+            for (int n = 0; n < x; ++n)
             {
                 cos = zmienne[n].Zmienna;
                 if (TempData[zmienne[n].Zmienna] != null)
