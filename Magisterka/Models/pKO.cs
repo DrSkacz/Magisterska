@@ -76,5 +76,6 @@ namespace Magisterka.Models
             new SelectListItem { Value = "2,1", Text = "4"  },
         };
 
+
     }
 }

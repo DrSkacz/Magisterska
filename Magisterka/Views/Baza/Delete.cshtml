@@ -6,9 +6,7 @@
 @{
     Layout = "_Layout";
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,7 +14,6 @@
     <title>Usuwanie Rekordów</title>
 </head>
 <body>
-
     <h3>Czy jesteś pewien, że chesz usunąć?</h3>
     <div>
         <h4>Pomiar "@Html.DisplayFor(model => model.Nazwa)" z dnia @Html.DisplayFor(model => model.DATA)</h4>
@@ -34,17 +31,8 @@
                         @Model.GetType().GetProperty(item.Zmienna).GetValue(Model)
                     </dd>
                 }
-
             }
         </dl>
-        @*
-        <dt>
-            <span title="Łączna długość wymiennika ciepła">[L] Łączna długość wymiennika ciepła</span>
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.BL)
-        </dd>
-        *@
     </div>
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />

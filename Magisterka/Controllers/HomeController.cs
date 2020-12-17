@@ -19,12 +19,9 @@ namespace Magisterka.Controllers
         }
         /*
 
-
        ABOUT   
 
-
        */
-
         public IActionResult About()
         {
             ViewData["Message"] = "Informacje o autorze programu.";
@@ -33,9 +30,7 @@ namespace Magisterka.Controllers
         }
         /*
 
-
        STRONA KOPCIA    
-
 
        */
         public IActionResult PoziomyKopec()
@@ -57,10 +52,8 @@ namespace Magisterka.Controllers
                     {
                         model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
                     }
-
                     TempData.Remove(cos);
                 }
-
             }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
@@ -71,7 +64,7 @@ namespace Magisterka.Controllers
             model.Selector3 = "?";
             return View(model);
         }
-
+       
         [HttpPost]
 
         public ActionResult PoziomyKopec(PKO c, string Oblicz)
@@ -258,7 +251,6 @@ namespace Magisterka.Controllers
                     TempData["KLp"] = c.KLp;
                     return RedirectToAction("Create", "Baza");
             }
-
             return View(c);
         }
         /*
@@ -287,18 +279,14 @@ namespace Magisterka.Controllers
                     { 
                     model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
                     }
-
                     TempData.Remove(cos);
                 }
-
             }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             model.Selector1 = "?";
             model.Selector2 = "?";
             return View(model);
-
-
         }
         [HttpPost]
 
@@ -354,8 +342,6 @@ namespace Magisterka.Controllers
             }
             return View(c);
         }
-
-
         /*
 
 
@@ -382,17 +368,14 @@ namespace Magisterka.Controllers
                     {
                         model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
                     }
-
                     TempData.Remove(cos);
                 }
-
             }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             model.BOX3 = "style1";
             model.BOX4 = "style1";
             return View(model);
-
         }
 
         [HttpPost]
@@ -470,7 +453,6 @@ namespace Magisterka.Controllers
                         {
                             n = c.SLw / c.ilosc;
                             c.dlugosc = n;
-
                         }
                         c.ilosc = c.ilosc - 1;
                         c.dlugosc = Math.Round(c.dlugosc, 2);
@@ -501,7 +483,6 @@ namespace Magisterka.Controllers
             }
             return View(c);
         }
-
         /*
 
 
@@ -510,11 +491,9 @@ namespace Magisterka.Controllers
 
 
        */
-
         public IActionResult Baza()
         {
             ViewData["Message"] = "Podgląd bazy danych";
-
             return View();
         }
 
@@ -523,7 +502,6 @@ namespace Magisterka.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
 
         public IActionResult BoseParker()
         { 
@@ -543,18 +521,14 @@ namespace Magisterka.Controllers
                     {
                         model.GetType().GetProperty(cos).SetValue(model, Convert.ToDouble(a), null);
                     }
-
                     TempData.Remove(cos);
                 }
-
             }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
             return View(model);
-       
         }
-
-
+        
         [HttpPost]
         public ActionResult BoseParker(Bose c, string Oblicz)
         {
@@ -598,7 +572,6 @@ namespace Magisterka.Controllers
                     TempData["BDw"] = c.BDw;
                     TempData["Blambdar"] = c.Blambdar;
                     TempData["Bn"] = c.Bn;
-                //    TempData["Bgamma"] = c.Bgamma;
                     TempData["BQ"] = c.BQ;
                     TempData["BCOP"] = c.BCOP;
                     TempData["BTgr"] = c.BTgr;

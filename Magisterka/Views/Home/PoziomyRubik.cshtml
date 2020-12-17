@@ -33,23 +33,37 @@
 
             <div class="col-md-4">
                 <div id="ob9" class="@Model.BOX2">
+                    <br>
+                    <h4><b> Temperatura gruntu na glebokosci x [t∞]</b></h4>
+                    <br>
+                    Miesiąc grzewczy:
+                    <br>
+                    <select asp-for="Selector3" asp-items="Model.Miesiac"></select> 
+                    <br /><br />
+                    Głębokośc ułożenia rury:
+                    <br>
+                    <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
+                    <br /><br />
+                    Temperatura gruntu na glebokosci x [t∞]
+                    <br>
+                    <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
+                    <br />
+                </div>
+                <br />
+            </div>
+
+            <div class="col-md-4">
+                <div id="ob9" class="@Model.BOX2">
                     <h3>&nbsp Długość rur[L]</h3>
 
                     Moc cieplna pobierana z gruntu [Q0]
                     <br>
                     <input type="Text" class="form-control" id="RQ0" name="RQ0" value="@Model.RQ0" />
                     <br />
-                    Głębokośc ułożenia rury:
-                    <br>
-                    <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
-                    <br /><br />
+                    
                     Średnica zewnętrzna rury [DZ]
                     <br>
                     <input type="Text" class="form-control" id="RDz" name="RDz" value="@Model.RDz" />
-                    <br />
-                    Temperatura gruntu na glebokosci x [t∞]
-                    <br>
-                    <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
                     <br />
                     Temperatura nośnika ciepła odpływająca z wymiennika gruntowego [t]
                     <br>
@@ -66,45 +80,45 @@
             </div>
 
         </div>
-        <hr />
-        <div class="row">
-            <div class="form-group">
-                <center>
-                    <button id="zapisz1" type="submit" value="zapisz1" name="Oblicz">Zapisz</button>
-                </center>
+                <hr />
+                <div class="row">
+                    <div class="form-group">
+                        <center>
+                            <button id="zapisz1" type="submit" value="zapisz1" name="Oblicz">Zapisz</button>
+                        </center>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-}
-@if (ViewBag.msg != null)
-{
-    <script type="text/javascript">
+            }
+            @if (ViewBag.msg != null)
+            {
+                <script type="text/javascript">
 
-            window.onload = function () {
-                $('#myModal').modal('show');
-            };
-    </script>
-}
+                    window.onload = function () {
+                        $('#myModal').modal('show');
+                    };
+                </script>
+            }
 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Wystąpił Błąd!</h4>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Wystąpił Błąd!</h4>
+                        </div>
+                        <div class="modal-body">
+                            @Html.Raw(ViewBag.msg)
+
+                        </div>
+                        <div class="modal-footer">
+                            <script>ViewBag.msg = null;</script>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="modal-body">
-                @Html.Raw(ViewBag.msg)
-
-            </div>
-            <div class="modal-footer">
-                <script>ViewBag.msg = null;</script>
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-
-    </div>
-
-</div>

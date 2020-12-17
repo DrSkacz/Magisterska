@@ -37,6 +37,8 @@ namespace Magisterka.Models
 
         public string BOX2 { get; set; }
 
+        public string BOX3 { get; set; }
+
         public List<SelectListItem> Glebokosc { get; set; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "-3,5", Text = "0" },
@@ -54,6 +56,25 @@ namespace Magisterka.Models
             new SelectListItem { Value = "9,5", Text = "3,0" },
 
         };
+
+        public string Selector3 { get; set; }
+
+        public List<SelectListItem> Miesiac { get; set; } = new List<SelectListItem>
+        { 
+            new SelectListItem { Value = "Styczeń", Text = "Styczeń" },
+            new SelectListItem { Value = "Luty", Text = "Luty" },
+            new SelectListItem { Value = "Marzec", Text = "Marzec"  },
+            new SelectListItem { Value = "Kwiecień", Text = "Kwiecień" },
+            new SelectListItem { Value = "Maj", Text = "Maj" },
+            new SelectListItem { Value = "Czerwiec", Text = "Czerwiec" },
+            new SelectListItem { Value = "Lipiec", Text = "Lipiec"  },
+            new SelectListItem { Value = "Sierpień", Text = "Sierpień"  },
+            new SelectListItem { Value = "Wrzesień", Text = "Wrzesień" },
+            new SelectListItem { Value = "Pazdiernik", Text = "Pazdiernik" },
+            new SelectListItem { Value = "Listopad", Text = "Listopad"  },
+            new SelectListItem { Value = "Grudzień", Text = "Grudzień"  },
+        };
+
 
         public string Selector2 { get; set; }
 

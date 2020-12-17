@@ -51,10 +51,6 @@ namespace Magisterka.Controllers
             return View(baza);
         }
 
-       
-
-
-
         // GET: Baza/Create
         public IActionResult Create()
         {
@@ -93,9 +89,6 @@ namespace Magisterka.Controllers
                 }      
             return View(baza);
         }
-
-
-
 
         // GET: Baza/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -166,7 +159,6 @@ namespace Magisterka.Controllers
             {
                 return NotFound();
             }
-
             return View(baza);
         }
 
