@@ -14,7 +14,7 @@ namespace Magisterka.Models
         //[StringLength(5)]
         //[Required]
         public double RQg { get; set; }
-        
+
         public double RFi { get; set; }
 
         public double Rro { get; set; }
@@ -30,49 +30,51 @@ namespace Magisterka.Models
         public double Rt { get; set; }
 
         public double RL { get; set; }
-
-        public string Selector1 { get; set; }
-
+        
         public string BOX1 { get; set; }
 
         public string BOX2 { get; set; }
 
         public string BOX3 { get; set; }
 
+        public string Selector1 { get; set; }
+        
         public List<SelectListItem> Glebokosc { get; set; } = new List<SelectListItem>
         {
-            new SelectListItem { Value = "-3,5", Text = "0" },
-            new SelectListItem { Value = "-2,2", Text = "0,25" },
-            new SelectListItem { Value = "-1,1", Text = "0,5"  },
-            new SelectListItem { Value = "0", Text = "0,75" },
+            new SelectListItem { Value = "0", Text = "0" },
+            new SelectListItem { Value = "0,25", Text = "0,25" },
+            new SelectListItem { Value = "0,5", Text = "0,5"  },
+            new SelectListItem { Value = "0,75", Text = "0,75" },
             new SelectListItem { Value = "1", Text = "1" },
-            new SelectListItem { Value = "2", Text = "1,25" },
-            new SelectListItem { Value = "3", Text = "1,5"  },
-            new SelectListItem { Value = "3,9", Text = "1,75"  },
-            new SelectListItem { Value = "4,9", Text = "2,0" },
-            new SelectListItem { Value = "5,5", Text = "2,25" },
-            new SelectListItem { Value = "6,5", Text = "2,5"  },
-            new SelectListItem { Value = "7", Text = "2,75"  },
-            new SelectListItem { Value = "9,5", Text = "3,0" },
+            new SelectListItem { Value = "1,25", Text = "1,25" },
+            new SelectListItem { Value = "1,5", Text = "1,5"  },
+            new SelectListItem { Value = "1,75", Text = "1,75"  },
+            new SelectListItem { Value = "2,0", Text = "2,0" },
+            new SelectListItem { Value = "2,25", Text = "2,25" },
+            new SelectListItem { Value = "2,5", Text = "2,5"  },
+            new SelectListItem { Value = "2,75", Text = "2,75"  },
+            new SelectListItem { Value = "3,0", Text = "3,0" },
+            new SelectListItem { Value = "4,375", Text = "4,375" },
+            new SelectListItem { Value = "6,875", Text = "6,875"  },
 
         };
 
         public string Selector3 { get; set; }
 
         public List<SelectListItem> Miesiac { get; set; } = new List<SelectListItem>
-        { 
-            new SelectListItem { Value = "Styczeń", Text = "Styczeń" },
-            new SelectListItem { Value = "Luty", Text = "Luty" },
-            new SelectListItem { Value = "Marzec", Text = "Marzec"  },
-            new SelectListItem { Value = "Kwiecień", Text = "Kwiecień" },
-            new SelectListItem { Value = "Maj", Text = "Maj" },
-            new SelectListItem { Value = "Czerwiec", Text = "Czerwiec" },
-            new SelectListItem { Value = "Lipiec", Text = "Lipiec"  },
-            new SelectListItem { Value = "Sierpień", Text = "Sierpień"  },
-            new SelectListItem { Value = "Wrzesień", Text = "Wrzesień" },
-            new SelectListItem { Value = "Pazdiernik", Text = "Pazdiernik" },
-            new SelectListItem { Value = "Listopad", Text = "Listopad"  },
-            new SelectListItem { Value = "Grudzień", Text = "Grudzień"  },
+        {
+            new SelectListItem { Value = "1", Text = "Styczeń" },
+            new SelectListItem { Value = "2", Text = "Luty" },
+            new SelectListItem { Value = "3", Text = "Marzec"  },
+            new SelectListItem { Value = "4", Text = "Kwiecień" },
+            new SelectListItem { Value = "5", Text = "Maj" },
+            new SelectListItem { Value = "6", Text = "Czerwiec" },
+            new SelectListItem { Value = "7", Text = "Lipiec"  },
+            new SelectListItem { Value = "8", Text = "Sierpień"  },
+            new SelectListItem { Value = "9", Text = "Wrzesień" },
+            new SelectListItem { Value = "10", Text = "Pazdiernik" },
+            new SelectListItem { Value = "11", Text = "Listopad"  },
+            new SelectListItem { Value = "12", Text = "Grudzień"  },
         };
 
 

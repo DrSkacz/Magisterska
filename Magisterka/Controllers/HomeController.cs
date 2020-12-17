@@ -284,6 +284,7 @@ namespace Magisterka.Controllers
             }
             model.BOX1 = "style1";
             model.BOX2 = "style1";
+            model.BOX3 = "style1";
             model.Selector1 = "?";
             model.Selector2 = "?";
             return View(model);
@@ -293,6 +294,7 @@ namespace Magisterka.Controllers
         public ActionResult PoziomyRubik(Obl c, string Oblicz)
 
         {
+
             switch (Oblicz)
             {
                 case "btn8":
@@ -302,11 +304,32 @@ namespace Magisterka.Controllers
                         c.RQ0 = Math.Round(c.RQ0, 4);
                         c.BOX1 = "style2";
                         c.BOX2 = "style1";
+                        c.BOX3 = "style1";
                     }
                     else
                     {
                         c.BOX1 = "style3";
                         c.BOX2 = "style1";
+                        c.BOX3 = "style1";
+                        ViewBag.msg = "Błąd wprowadzania danych!";
+                    }
+                    return View(c);
+
+                case "btn7":
+                    if (ModelState.IsValid)
+                    {
+
+
+
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style2";
+                    }
+                    else
+                    {
+                        c.BOX1 = "style1";
+                        c.BOX2 = "style1";
+                        c.BOX3 = "style3";
                         ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);
@@ -321,11 +344,13 @@ namespace Magisterka.Controllers
                         c.RL = Math.Round(c.RL, 2);
                         c.BOX1 = "style1";
                         c.BOX2 = "style2";
+                        c.BOX3 = "style1";
                     }
                     else
                     {
                         c.BOX1 = "style1";
                         c.BOX2 = "style3";
+                        c.BOX3 = "style1";
                         ViewBag.msg = "Błąd wprowadzania danych!";
                     }
                     return View(c);

@@ -32,22 +32,21 @@
             </div>
 
             <div class="col-md-4">
-                <div id="ob9" class="@Model.BOX2">
+                <div id="ob9" class="@Model.BOX3">
                     <br>
                     <h4><b> Temperatura gruntu na glebokosci x [t∞]</b></h4>
                     <br>
                     Miesiąc grzewczy:
                     <br>
-                    <select asp-for="Selector3" asp-items="Model.Miesiac"></select> 
+                    <select asp-for="Selector3" asp-items="Model.Miesiac"></select>
                     <br /><br />
                     Głębokośc ułożenia rury:
                     <br>
                     <select asp-for="Selector1" asp-items="Model.Glebokosc"></select> m
                     <br /><br />
-                    Temperatura gruntu na glebokosci x [t∞]
-                    <br>
-                    <input type="Text" class="form-control" id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
-                    <br />
+                    &nbsp
+                    <button id="btn7" type="submit" value="btn9" name="Oblicz">Oblicz L</button>
+                    <input type="Text"  id="Rtinf" name="Rtinf" value="@Model.Rtinf" />
                 </div>
                 <br />
             </div>
